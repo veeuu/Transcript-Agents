@@ -19,7 +19,7 @@ GEMINI_API_KEY = os.environ.get("AGENT2_GEMINI_API_KEY", os.environ.get("GEMINI_
 SERPAPI_KEY = os.environ.get("SERPAPI_KEY", "")
 
 genai.configure(api_key=GEMINI_API_KEY)
-_model = genai.GenerativeModel("gemini-3-flash-preview")
+_model = genai.GenerativeModel("gemini-3.1-flash-lite-preview")
 
 HEADERS = {
     "User-Agent": (
