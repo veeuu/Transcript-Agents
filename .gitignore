@@ -1,0 +1,23 @@
+# Environment variables - NEVER commit this
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ChromaDB local storage
+**/chroma_db/
+
+# Output files
+**/data/*_output.json
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/

@@ -5,6 +5,8 @@ FastAPI + Swagger UI
 
 import os
 import sys
+from dotenv import load_dotenv
+load_dotenv()
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
@@ -96,8 +98,8 @@ def health():
     """Check API health and whether API keys are configured."""
     return {
         "status": "ok",
-        "serpapi_key_set": bool(os.environ.get("SERPAPI_KEY", "0ce8a0102165979f7a84be8259503f63c3bf95698e13089cdee04f25db707082")),
-        "gemini_key_set": bool(os.environ.get("GEMINI_API_KEY", "AIzaSyDSGDny-k99pLQB3xonYbiG1A-M9-1NPao")),
+        "serpapi_key_set": bool(os.environ.get("SERPAPI_KEY", "")),
+        "gemini_key_set": bool(os.environ.get("GEMINI_API_KEY", "")),
     }
 
 
@@ -163,3 +165,4 @@ def get_presets():
             {"company_name": "Value Research", "website": "https://valueresearchstocks.com"},
         ]
     }
+
