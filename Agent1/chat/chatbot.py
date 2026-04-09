@@ -6,6 +6,8 @@ Usage:
 """
 
 import os
+from dotenv import load_dotenv
+load_dotenv()
 import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
@@ -13,7 +15,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 import google.generativeai as genai
 from transcript_pipeline.rag_store import query_rag
 
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "AIzaSyCFd9VrEcSbWjKWbTeIhY7PTR85IIk8YlY")
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 genai.configure(api_key=GEMINI_API_KEY)
 _model = genai.GenerativeModel("gemini-2.5-flash")
 
@@ -65,3 +67,4 @@ def run_chat_loop():
 
 if __name__ == "__main__":
     run_chat_loop()
+

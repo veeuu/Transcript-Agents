@@ -1,4 +1,4 @@
-"""
+﻿"""
 FastAPI app with Swagger UI.
 Endpoints:
   POST /pipeline/run     - Run full pipeline on a text transcript
@@ -10,6 +10,8 @@ Endpoints:
 
 import os
 import sys
+from dotenv import load_dotenv
+load_dotenv()
 import json
 import tempfile
 
@@ -46,7 +48,7 @@ app.add_middleware(
 )
 
 
-# ── Request / Response Models ──────────────────────────────────────────────────
+# â”€â”€ Request / Response Models â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 class TranscriptTextRequest(BaseModel):
     text: str
@@ -89,7 +91,7 @@ class HealthResponse(BaseModel):
     chroma_path: str
 
 
-# ── Routes ─────────────────────────────────────────────────────────────────────
+# â”€â”€ Routes â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 @app.get("/health", response_model=HealthResponse, tags=["System"])
 def health_check():
@@ -97,7 +99,7 @@ def health_check():
     from transcript_pipeline.rag_store import CHROMA_PATH
     return {
         "status": "ok",
-        "gemini_key_set": bool(os.environ.get("GEMINI_API_KEY", "AIzaSyCtIAcF6jw7dSEOEczb0MSI48p4yImfvzs")),
+        "gemini_key_set": bool(os.environ.get("GEMINI_API_KEY", "")),
         "chroma_path": CHROMA_PATH,
     }
 
@@ -202,3 +204,4 @@ def list_transcripts():
         return {"transcripts": list(seen.values()), "total": len(seen)}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+

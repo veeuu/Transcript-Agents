@@ -6,13 +6,15 @@ Each transcript is chunked by section for fine-grained retrieval.
 
 import json
 import os
+from dotenv import load_dotenv
+load_dotenv()
 import hashlib
 from typing import Dict, Any, List
 
 import chromadb
 import google.generativeai as genai
 
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "AIzaSyCFd9VrEcSbWjKWbTeIhY7PTR85IIk8YlY")
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 genai.configure(api_key=GEMINI_API_KEY)
 
 CHROMA_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "chroma_db")
@@ -120,3 +122,4 @@ def query_rag(question: str, n_results: int = 4) -> List[Dict[str, Any]]:
         hits.append({"content": doc, "metadata": meta, "score": round(1 - dist, 4)})
 
     return hits
+

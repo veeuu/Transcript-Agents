@@ -6,11 +6,13 @@ Uses Google Gemini 2.5 Flash for LLM-based analysis.
 
 import json
 import os
+from dotenv import load_dotenv
+load_dotenv()
 from typing import Dict, Any
 
 import google.generativeai as genai
 
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "AIzaSyCFd9VrEcSbWjKWbTeIhY7PTR85IIk8YlY")
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 genai.configure(api_key=GEMINI_API_KEY)
 _model = genai.GenerativeModel("gemini-2.5-flash")
 
@@ -61,3 +63,4 @@ def analyze(structured: Dict[str, Any]) -> Dict[str, Any]:
     analysis["timeline"] = structured["timeline"]
 
     return analysis
+
