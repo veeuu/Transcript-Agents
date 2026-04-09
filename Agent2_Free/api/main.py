@@ -13,7 +13,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional, List
 
-from researcher import research_competitor, OLLAMA_MODEL, OLLAMA_URL
+from researcher import research_competitor, HF_MODEL
 
 app = FastAPI(
     title="Competitor Research API (Free)",
@@ -84,8 +84,8 @@ class BulkRequest(BaseModel):
 
 class HealthResponse(BaseModel):
     status: str
-    ollama_model: str
-    ollama_url: str
+    hf_model: str
+    hf_token_set: bool
 
 
 # ── Routes ────────────────────────────────────────────────────────────────────
@@ -95,8 +95,8 @@ def health():
     """Check API health and Ollama config."""
     return {
         "status": "ok",
-        "ollama_model": OLLAMA_MODEL,
-        "ollama_url": OLLAMA_URL,
+        "hf_model": HF_MODEL,
+        "hf_token_set": bool(os.environ.get("HF_TOKEN", "")),
     }
 
 
