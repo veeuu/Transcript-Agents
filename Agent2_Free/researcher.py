@@ -1,20 +1,23 @@
 """
 Competitor Research Engine (Free Version)
 - DuckDuckGo for search (no API key needed)
-- Ollama for local LLM inference (no API key needed)
+- HuggingFace Inference API for LLM (free token, runs on HF servers)
 - BeautifulSoup for website scraping
 """
 
+import os
 import json
 import requests
 from bs4 import BeautifulSoup
 from ddgs import DDGS
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # ── Config ────────────────────────────────────────────────────────────────────
-OLLAMA_URL = "http://localhost:11434/api/generate"
-OLLAMA_MODEL = "llama3.2:latest"
-# Max chars to send per prompt — keep small so llama3.2 responds fast
-CTX_LIMIT = 1500
+HF_TOKEN = os.environ.get("HF_TOKEN", "")
+HF_MODEL = "Qwen/Qwen2.5-72B-Instruct"
+CTX_LIMIT = 4000
 
 HEADERS = {
     "User-Agent": (
@@ -28,7 +31,6 @@ HEADERS = {
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
 def _ddg_search(query: str, num: int = 5) -> list[str]:
-    """Search DuckDuckGo and return a list of snippets."""
     try:
         with DDGS() as ddgs:
             results = list(ddgs.text(query, max_results=num))
@@ -39,8 +41,7 @@ def _ddg_search(query: str, num: int = 5) -> list[str]:
         return []
 
 
-def _scrape_text(url: str, max_chars: int = 6000) -> str:
-    """Scrape visible text from a URL."""
+def _scrape_text(url: str, max_chars: int = 4000) -> str:
     try:
         resp = requests.get(url, headers=HEADERS, timeout=10)
         soup = BeautifulSoup(resp.text, "html.parser")
@@ -54,24 +55,26 @@ def _scrape_text(url: str, max_chars: int = 6000) -> str:
         return ""
 
 
-def _ollama(prompt: str) -> str:
-    """Send a prompt to the local Ollama model and return the response."""
+def _hf_infer(prompt: str) -> str:
+    """Call HuggingFace via InferenceClient."""
     try:
-        resp = requests.post(
-            OLLAMA_URL,
-            json={"model": OLLAMA_MODEL, "prompt": prompt, "stream": False},
-            timeout=180,
+        from huggingface_hub import InferenceClient
+        client = InferenceClient(api_key=HF_TOKEN)
+        response = client.chat_completion(
+            model=HF_MODEL,
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=600,
+            temperature=0.1,
         )
-        text = resp.json().get("response", "").strip()
-        print(f"[OLLAMA] response length: {len(text)} chars")
+        text = response.choices[0].message.content.strip()
+        print(f"[HF] response length: {len(text)} chars")
         return text
     except Exception as e:
-        print(f"[OLLAMA ERROR] {e}")
+        print(f"[HF ERROR] {e}")
         return ""
 
 
 def _parse_json(raw: str) -> dict:
-    """Extract JSON object from model response, stripping markdown fences."""
     if "```" in raw:
         parts = raw.split("```")
         for part in parts:
@@ -92,80 +95,78 @@ def _parse_json(raw: str) -> dict:
         return {}
 
 
-# ── Main research function ────────────────────────────────────────────────────
-
 def _mini_prompt(company: str, keys: list[str], ctx: str) -> dict:
-    """Send a small focused prompt and return parsed JSON."""
     keys_str = ", ".join(f'"{k}"' for k in keys)
-    prompt = f"""You are a data extractor. Read the context and fill in what you find about "{company}".
+    prompt = f"""You are a competitive intelligence analyst. Extract information about "{company}" from the context below.
 
-Return a JSON object with these keys: {keys_str}
-- String fields: fill with actual value found, or null if not found
-- Array fields (differentiators, user_complaints, strategic_moves, new_features, founders): fill with real extracted items, or []
-- Do NOT copy example text, fill with REAL data from context only
+Return ONLY a valid JSON object with these keys: {keys_str}
+Rules:
+- "platforms": must be one of "Web", "Mobile", or "Both" — not a product list
+- String fields: actual value found, or null if not in context
+- Array fields: list of real extracted strings, or []
+- Do NOT invent data not present in the context
+- Return ONLY the JSON, no explanation
 
 Context:
-{ctx[:CTX_LIMIT]}
-
-JSON:"""
-    raw = _ollama(prompt)
+{ctx[:CTX_LIMIT]}"""
+    raw = _hf_infer(prompt)
     return _parse_json(raw)
 
 
-def research_competitor(company_name: str, website: str) -> dict:
-    website_text = _scrape_text(website, max_chars=2000)
+# ── Main research function ────────────────────────────────────────────────────
 
-    # Search contexts grouped by topic
+def research_competitor(company_name: str, website: str) -> dict:
+    website_text = _scrape_text(website)
+
     facts_ctx = " ".join(
-        _ddg_search(f"{company_name} founded year headquarters founders CEO", num=3) +
-        _ddg_search(f"{company_name} funding raised users revenue", num=3)
+        _ddg_search(f"{company_name} founded year headquarters founders CEO", num=4) +
+        _ddg_search(f"{company_name} total registered users active investors downloads", num=4) +
+        _ddg_search(f"{company_name} annual revenue ARR net revenue FY2024 FY2025", num=4) +
+        _ddg_search(f"{company_name} total funding raised valuation series", num=3)
     )
     positioning_ctx = " ".join(
-        _ddg_search(f"{company_name} product features pricing revenue model", num=3)
+        _ddg_search(f"{company_name} revenue model how does it make money brokerage fees", num=4) +
+        _ddg_search(f"{company_name} product features pricing plans", num=3)
     )
     sentiment_ctx = " ".join(
-        _ddg_search(f"{company_name} user reviews complaints reddit problems", num=3) +
-        _ddg_search(f"{company_name} new features partnership expansion 2024 2025", num=3)
+        _ddg_search(f"{company_name} user reviews complaints reddit problems 2024", num=4) +
+        _ddg_search(f"{company_name} new features launched product update 2024 2025", num=4) +
+        _ddg_search(f"{company_name} partnership acquisition expansion strategic 2024 2025", num=3)
     )
 
-    # Call 1: hard facts
-    print("[OLLAMA] call 1/3 — facts")
+    print("[HF] call 1/3 — facts")
     facts = _mini_prompt(company_name,
         ["year_founded", "founders", "headquarters", "platforms", "funding_raised", "number_of_users", "annual_revenue"],
         facts_ctx)
 
-    # Call 2: positioning from website
-    print("[OLLAMA] call 2/3 — positioning")
+    print("[HF] call 2/3 — positioning")
     positioning = _mini_prompt(company_name,
         ["key_positioning", "revenue_model", "differentiators"],
         website_text + " " + positioning_ctx)
 
-    # Call 3: sentiment & strategy
-    print("[OLLAMA] call 3/3 — sentiment")
+    print("[HF] call 3/3 — sentiment")
     sentiment = _mini_prompt(company_name,
         ["user_complaints", "strategic_moves", "new_features"],
         sentiment_ctx)
 
     def clean(val):
-        """Return a string or None. Coerces ints, rejects lists."""
         if val is None:
             return None
         if isinstance(val, list):
-            # model put a list where a string was expected — join it
-            val = ", ".join(str(v) for v in val) if val else None
-            return val
+            return ", ".join(str(v) for v in val) if val else None
         val = str(val).strip()
-        return None if val.lower() == "null" else val
+        return None if val.lower() in ("null", "none", "") else val
 
     def clean_list(val):
         if not isinstance(val, list):
             return []
-        bad = {"null", "item1", "item2", "complaint1", "complaint2", "move1", "move2", "feature1", "feature2", "name1", "name2"}
-        return [str(v) for v in val if str(v).strip().lower() not in bad]
+        bad = {"null", "none", "n/a", "item1", "item2", "complaint1", "complaint2",
+               "move1", "move2", "feature1", "feature2", "name1", "name2"}
+        return [str(v).strip() for v in val if str(v).strip().lower() not in bad]
 
     return {
-        "company": company_name,
-        "website": website,
+        "company":         company_name,
+        "website":         website,
         "year_founded":    clean(facts.get("year_founded")),
         "founders":        clean_list(facts.get("founders", [])),
         "headquarters":    clean(facts.get("headquarters")),
