@@ -125,15 +125,23 @@ def run_pipeline(
     transcript_text: str = None,
     competitor_name: str = None,
     competitor_website: str = None,
-    youtube_url=None,       # str or list
-    reddit_url=None,        # str or list
-    app_store_urls=None,    # list of Play/App Store URLs
-    competitors=None,       # list of additional competitor names
+    youtube_url=None,
+    reddit_url=None,
+    app_store_urls=None,
+    competitors=None,
     questions: list = None,
     save_outputs: bool = True,
-    **kwargs,               # absorb extra fields like company_info, twitter_url etc.
+    run_id: str = None,
+    **kwargs,
 ) -> dict:
     outputs = {}
+    out_dir = f"runs/{run_id}" if run_id else "."
+    if save_outputs and run_id:
+        os.makedirs(out_dir, exist_ok=True)
+
+    def _save_local(data, name):
+        if save_outputs:
+            _save(data, f"{out_dir}/{name}")
 
     # auto-start any agents that aren't running
     ensure_agents_running()
@@ -147,7 +155,7 @@ def run_pipeline(
     agent1_out = {}
     if transcript_text:
         agent1_out = _post(f"{AGENT1_URL}/pipeline/run", {"text": transcript_text}, "Agent 1 — Transcript")
-        if save_outputs and agent1_out: _save(agent1_out, "pipeline_agent1.json")
+        if save_outputs and agent1_out: _save_local(agent1_out, "agent1.json")
     else:
         print("[PIPELINE] ⚠ No transcript, skipping Agent 1")
     outputs["agent1"] = agent1_out
@@ -167,7 +175,7 @@ def run_pipeline(
             agent2_out = _post(f"{AGENT2_URL}/competitor/research", all_competitors[0], f"Agent 2 — {all_competitors[0]['company_name']}")
         else:
             agent2_out = _post(f"{AGENT2_URL}/competitor/bulk", {"competitors": all_competitors}, "Agent 2 — Bulk Competitors")
-        if save_outputs and agent2_out: _save(agent2_out, "pipeline_agent2.json")
+        if save_outputs and agent2_out: _save_local(agent2_out, "agent2.json")
     else:
         print("[PIPELINE] ⚠ No competitors, skipping Agent 2")
     outputs["agent2"] = agent2_out
@@ -190,7 +198,7 @@ def run_pipeline(
         if out: agent3_outputs.append(out)
 
     agent3_out = agent3_outputs[0] if len(agent3_outputs) == 1 else {"sources": agent3_outputs} if agent3_outputs else {}
-    if save_outputs and agent3_out: _save(agent3_out, "pipeline_agent3.json")
+    if save_outputs and agent3_out: _save_local(agent3_out, "agent3.json")
     if not agent3_outputs: print("[PIPELINE] ⚠ No social URLs, skipping Agent 3")
     outputs["agent3"] = agent3_out
 
@@ -204,7 +212,7 @@ def run_pipeline(
             "Agent 4 — Insight Extraction"
         )
         if save_outputs and agent4_out:
-            _save(agent4_out, "pipeline_agent4.json")
+            _save_local(agent4_out, "agent4.json")
     else:
         print("[PIPELINE] ⚠ No signals available, skipping Agent 4")
     outputs["agent4"] = agent4_out
@@ -222,7 +230,7 @@ def run_pipeline(
             "Agent 5 — Research Synthesis"
         )
         if save_outputs and agent5_out:
-            _save(agent5_out, "pipeline_agent5.json")
+            _save_local(agent5_out, "agent5.json")
     else:
         print("[PIPELINE] ⚠ No problems from Agent 4, skipping Agent 5")
     outputs["agent5"] = agent5_out
@@ -240,7 +248,7 @@ def run_pipeline(
             "Agent 6 — Product Brief Generation"
         )
         if save_outputs and agent6_out:
-            _save(agent6_out, "pipeline_agent6.json")
+            _save_local(agent6_out, "agent6.json")
     else:
         print("[PIPELINE] ⚠ No insights from Agent 5, skipping Agent 6")
     outputs["agent6"] = agent6_out
@@ -284,13 +292,11 @@ def run_pipeline(
     }
 
     if questions and copilot_loaded:
-        # collect all questions including follow-ups from previous answers
         answered_questions = set()
-        queue = list(questions)
+        all_follow_ups = []
 
-        print(f"\n[PIPELINE] ▶ Answering founder questions (with follow-ups)...")
-        while queue:
-            q = queue.pop(0)
+        print(f"\n[PIPELINE] ▶ Answering {len(questions)} founder questions...")
+        for q in questions:
             if q in answered_questions:
                 continue
             answered_questions.add(q)
@@ -302,17 +308,18 @@ def run_pipeline(
             )
             copilot_answers.append({"question": q, **ans})
 
-            # auto-answer follow-up questions suggested by the copilot
-            follow_ups = ans.get("follow_up_questions", [])
-            for fq in follow_ups:
-                if fq and fq not in answered_questions:
-                    queue.append(fq)
-                    print(f"[PIPELINE] ↳ Follow-up queued: {fq[:70]}")
+            # collect follow-ups as suggestions only — don't auto-answer
+            for fq in ans.get("follow_up_questions", []):
+                if fq and fq not in answered_questions and fq not in all_follow_ups:
+                    all_follow_ups.append(fq)
+
+        # attach all suggested follow-ups at the end for the founder to pick from
+        outputs["suggested_follow_ups"] = all_follow_ups[:MAX_FOLLOWUP_QUESTIONS]
 
     outputs["copilot_answers"] = copilot_answers
 
     if save_outputs:
-        _save(outputs, "pipeline_output.json")
+        _save_local(outputs, "output.json")
         print("\n[PIPELINE] ✅ Full pipeline complete → pipeline_output.json")
 
     return outputs
@@ -320,7 +327,9 @@ def run_pipeline(
 
 # ── FastAPI wrapper ───────────────────────────────────────────────────────────
 
-from fastapi import FastAPI, HTTPException
+import uuid
+import threading
+from fastapi import FastAPI, HTTPException, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional, List
@@ -334,20 +343,24 @@ app = FastAPI(
 
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 
+# run_id → status store
+_runs: dict = {}
+MAX_FOLLOWUP_QUESTIONS = 3
+
 
 class PipelineRequest(BaseModel):
     transcript_text: Optional[str] = None
     competitor_name: Optional[str] = None
     competitor_website: Optional[str] = None
-    youtube_url: Optional[List[str]] = None       # single string or list
-    reddit_url: Optional[List[str]] = None         # single string or list
-    app_store_urls: Optional[List[str]] = None     # Play Store / App Store URLs
-    twitter_url: Optional[str] = None              # reserved for future
-    linkedin_url: Optional[str] = None             # reserved for future
-    company_info: Optional[dict] = None            # extra context, passed to agents
-    competitors: Optional[List[str]] = None        # additional competitors to research
-    data_sources: Optional[List[str]] = None       # informational
-    analysis_goals: Optional[List[str]] = None     # informational
+    youtube_url: Optional[List[str]] = None
+    reddit_url: Optional[List[str]] = None
+    app_store_urls: Optional[List[str]] = None
+    twitter_url: Optional[str] = None
+    linkedin_url: Optional[str] = None
+    company_info: Optional[dict] = None
+    competitors: Optional[List[str]] = None
+    data_sources: Optional[List[str]] = None
+    analysis_goals: Optional[List[str]] = None
     questions: Optional[List[str]] = [
         "What are the top 3 user problems?",
         "What should we build next?",
@@ -355,35 +368,9 @@ class PipelineRequest(BaseModel):
     ]
     save_outputs: bool = True
 
-    class Config:
-        json_schema_extra = {
-            "example": {
-                "transcript_text": "Meeting transcript text here...",
-                "competitor_name": "Groww",
-                "competitor_website": "https://groww.in",
-                "youtube_url": "https://www.youtube.com/@GrowwApp",
-                "reddit_url": "https://www.reddit.com/r/IndiaInvestments/",
-                "questions": [
-                    "What are the top 3 user problems?",
-                    "What should we build next?",
-                    "What are competitors doing differently?",
-                ],
-                "save_outputs": True,
-            }
-        }
 
-
-@app.get("/health")
-def health():
-    return {"status": "ok"}
-
-
-@app.post("/pipeline/run")
-def run(req: PipelineRequest):
-    """
-    Run the full end-to-end pipeline.
-    Provide any combination of inputs — steps with missing inputs are skipped gracefully.
-    """
+def _run_in_background(run_id: str, req: PipelineRequest):
+    _runs[run_id]["status"] = "running"
     try:
         result = run_pipeline(
             transcript_text=req.transcript_text,
@@ -395,18 +382,45 @@ def run(req: PipelineRequest):
             competitors=req.competitors,
             questions=req.questions,
             save_outputs=req.save_outputs,
+            run_id=run_id,
         )
-        return {
+        _runs[run_id].update({
             "status": "complete",
-            "steps_run": [k for k, v in result.items() if v and k not in ("copilot_answers", "pipeline_summary")],
+            "steps_run": [k for k, v in result.items() if v and k not in ("copilot_answers", "pipeline_summary", "suggested_follow_ups")],
             "pipeline_summary": result.get("pipeline_summary"),
             "copilot_answers": result.get("copilot_answers", []),
+            "suggested_follow_ups": result.get("suggested_follow_ups", []),
             "feature_count": result.get("agent6", {}).get("total_features", 0),
             "insight_count": result.get("agent5", {}).get("total_insights", 0),
             "problem_count": result.get("agent4", {}).get("total_problems", 0),
-        }
+        })
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        _runs[run_id].update({"status": "failed", "error": str(e)})
+
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
+
+@app.get("/pipeline/status/{run_id}")
+def get_status(run_id: str):
+    """Check the status of a pipeline run."""
+    if run_id not in _runs:
+        raise HTTPException(status_code=404, detail="Run ID not found")
+    return _runs[run_id]
+
+
+@app.post("/pipeline/run")
+def run(req: PipelineRequest, background_tasks: BackgroundTasks):
+    """
+    Start the full pipeline as a background task.
+    Returns a run_id immediately. Poll /pipeline/status/{run_id} for results.
+    """
+    run_id = str(uuid.uuid4())[:8]
+    _runs[run_id] = {"status": "starting", "run_id": run_id}
+    background_tasks.add_task(_run_in_background, run_id, req)
+    return {"run_id": run_id, "status": "starting", "poll_url": f"/pipeline/status/{run_id}"}
 
 
 if __name__ == "__main__":
