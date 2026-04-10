@@ -1,8 +1,8 @@
 """
-YouTube Analysis Agent - Free Version (Agent 3 Free)
-- Apify YouTube scraper for video/channel data (free tier)
+YouTube & Reddit Analysis Agent - Free Version (Agent 3 Free)
+- Apify scrapers for YouTube and Reddit data (free tier)
 - HuggingFace Qwen2.5-72B for analysis (free token)
-- No Gemini, no YouTube API key needed
+- No Gemini, no YouTube/Reddit API key needed
 """
 
 import os
@@ -268,4 +268,235 @@ Recent videos:
         "content_style": ch.get("content_style"),
         "top_performing_topics": ch.get("top_performing_topics", []),
         "videos": videos_data,
+    }
+
+
+# ── Reddit post analysis ──────────────────────────────────────────────────────
+
+def analyze_reddit_post(post_url: str) -> dict:
+    print(f"[APIFY] scraping Reddit post: {post_url}")
+    items = _apify_run(
+        "trudax~reddit-scraper-lite",
+        {
+            "startUrls": [{"url": post_url}],
+            "maxComments": 50,
+            "maxCommunitiesCount": 0,
+            "maxUserCount": 0,
+        },
+        timeout=120,
+    )
+
+    if not items:
+        raise ValueError("No data returned from Apify for this Reddit post.")
+
+    # find the post item (type == "post")
+    post = next((i for i in items if i.get("dataType") == "post"), items[0])
+    comments_raw = [i for i in items if i.get("dataType") == "comment"]
+
+    title = post.get("title", "")
+    body = (post.get("body") or post.get("text") or "")[:2000]
+    subreddit = post.get("communityName", post.get("subreddit", ""))
+    author = post.get("username", post.get("author", ""))
+    score = post.get("score", post.get("upVotes"))
+    upvote_ratio = post.get("upVoteRatio")
+    num_comments = post.get("numberOfComments", post.get("commentsCount", len(comments_raw)))
+    created_at = post.get("createdAt", post.get("created", ""))
+    url = post.get("url", post_url)
+    flair = post.get("flair", post.get("linkFlairText", ""))
+
+    # top comments text
+    top_comments = []
+    for c in comments_raw[:20]:
+        text = (c.get("body") or c.get("text") or "").strip()
+        if text:
+            top_comments.append(text)
+
+    comments_ctx = "\n".join(f"- {c[:200]}" for c in top_comments[:15])
+    context = f"Subreddit: r/{subreddit}\nTitle: {title}\nBody: {body}\nTop comments:\n{comments_ctx}"
+
+    print("[HF] analyzing Reddit post...")
+    analysis = _ask_json(f"""Analyze this Reddit post and its comments. Return a JSON object with these keys:
+- "summary": 2-3 sentence summary of what the post is about
+- "main_topics": list of main topics discussed (max 6)
+- "overall_sentiment": sentiment of the post — "Positive", "Negative", or "Neutral"
+- "community_sentiment": sentiment of the comments — "Positive", "Negative", "Neutral", or "Mixed"
+- "key_opinions": list of 3-5 distinct opinions or viewpoints expressed in comments
+- "post_type": e.g. "Question", "Discussion", "News", "Rant", "Meme", "Review", "AMA", "Advice", etc.
+- "controversy_level": "Low", "Medium", or "High" based on comment tone
+- "key_takeaway": single most important insight from this post and its discussion
+
+Return ONLY valid JSON, no explanation.
+
+Context:
+{context[:4000]}""")
+
+    return {
+        "post_url": url,
+        "title": title,
+        "subreddit": subreddit,
+        "author": author,
+        "created_at": created_at,
+        "score": score,
+        "upvote_ratio": upvote_ratio,
+        "num_comments": num_comments,
+        "flair": flair or None,
+        "body_preview": body[:500] if body else None,
+        "top_comments_scraped": len(top_comments),
+        "summary": analysis.get("summary"),
+        "main_topics": analysis.get("main_topics", []),
+        "overall_sentiment": analysis.get("overall_sentiment"),
+        "community_sentiment": analysis.get("community_sentiment"),
+        "key_opinions": analysis.get("key_opinions", []),
+        "post_type": analysis.get("post_type"),
+        "controversy_level": analysis.get("controversy_level"),
+        "key_takeaway": analysis.get("key_takeaway"),
+    }
+
+
+# ── Subreddit analysis ────────────────────────────────────────────────────────
+
+# In-memory store for monitor state: {subreddit_name: {"last_post_ids": set, "new_posts": []}}
+_monitor_state: dict = {}
+
+
+def _scrape_subreddit_posts(subreddit_url: str, max_posts: int = 20) -> list:
+    """Fetch recent posts from a subreddit via Apify."""
+    return _apify_run(
+        "trudax~reddit-scraper-lite",
+        {
+            "startUrls": [{"url": subreddit_url}],
+            "maxPostCount": max_posts,
+            "maxComments": 10,
+            "maxCommunitiesCount": 0,
+            "maxUserCount": 0,
+        },
+        timeout=180,
+    )
+
+
+def _analyze_post_brief(post: dict) -> dict:
+    """Quick per-post analysis for subreddit overview."""
+    title = post.get("title", "")
+    body = (post.get("body") or post.get("text") or "")[:500]
+    subreddit = post.get("communityName", post.get("subreddit", ""))
+    comments_raw = post.get("comments", []) or []
+    top_comments = "\n".join(f"- {(c.get('body') or '')[:150]}" for c in comments_raw[:5])
+
+    context = f"Title: {title}\nBody: {body}\nTop comments:\n{top_comments}"
+
+    result = _ask_json(f"""Analyze this Reddit post briefly. Return JSON with:
+- "summary": 1-2 sentence summary
+- "main_topics": list of up to 4 topics
+- "overall_sentiment": "Positive", "Negative", or "Neutral"
+- "community_sentiment": "Positive", "Negative", "Neutral", or "Mixed"
+- "post_type": e.g. Question, Discussion, News, Rant, Review, Advice, etc.
+- "controversy_level": "Low", "Medium", or "High"
+
+Return ONLY valid JSON.
+
+{context}""")
+
+    return {
+        "post_id": post.get("id", ""),
+        "post_url": post.get("url", ""),
+        "title": title,
+        "author": post.get("username", post.get("author", "")),
+        "created_at": post.get("createdAt", post.get("created", "")),
+        "score": post.get("score", post.get("upVotes")),
+        "upvote_ratio": post.get("upVoteRatio"),
+        "num_comments": post.get("numberOfComments", post.get("commentsCount")),
+        "flair": post.get("flair") or post.get("linkFlairText") or None,
+        "summary": result.get("summary"),
+        "main_topics": result.get("main_topics", []),
+        "overall_sentiment": result.get("overall_sentiment"),
+        "community_sentiment": result.get("community_sentiment"),
+        "post_type": result.get("post_type"),
+        "controversy_level": result.get("controversy_level"),
+    }
+
+
+def analyze_subreddit(subreddit_url: str, max_posts: int = 20) -> dict:
+    """Fetch and analyze the last N posts from a subreddit."""
+    print(f"[APIFY] scraping subreddit: {subreddit_url}")
+    items = _scrape_subreddit_posts(subreddit_url, max_posts)
+
+    posts_raw = [i for i in items if i.get("dataType") == "post" or i.get("title")]
+    if not posts_raw:
+        raise ValueError("No posts found for this subreddit.")
+
+    subreddit_name = posts_raw[0].get("communityName", posts_raw[0].get("subreddit", subreddit_url))
+
+    # store seen post IDs for monitor
+    seen_ids = {p.get("id", "") for p in posts_raw}
+    _monitor_state[subreddit_name] = {"last_post_ids": seen_ids, "new_posts": []}
+
+    print(f"[HF] analyzing {len(posts_raw)} posts...")
+    analyzed_posts = [_analyze_post_brief(p) for p in posts_raw]
+
+    # subreddit-level summary
+    titles_ctx = "\n".join(f"- {p['title']} [{p.get('overall_sentiment','')}]" for p in analyzed_posts)
+    summary = _ask_json(f"""Analyze this investing subreddit based on recent posts. Return JSON with:
+- "subreddit_summary": 2-3 sentence overview of current community mood and topics
+- "hot_topics": list of topics being discussed most right now
+- "dominant_sentiment": overall community sentiment right now
+- "common_post_types": most common types of posts
+- "notable_trends": any emerging trends or recurring themes
+
+Return ONLY valid JSON.
+
+Subreddit: r/{subreddit_name}
+Recent posts:
+{titles_ctx}""")
+
+    dates = sorted([p["created_at"] for p in analyzed_posts if p.get("created_at")], reverse=True)
+
+    return {
+        "subreddit": subreddit_name,
+        "subreddit_url": subreddit_url,
+        "posts_analyzed": len(analyzed_posts),
+        "date_range": {
+            "latest": dates[0] if dates else None,
+            "oldest": dates[-1] if dates else None,
+        },
+        "subreddit_summary": summary.get("subreddit_summary"),
+        "hot_topics": summary.get("hot_topics", []),
+        "dominant_sentiment": summary.get("dominant_sentiment"),
+        "common_post_types": summary.get("common_post_types", []),
+        "notable_trends": summary.get("notable_trends", []),
+        "posts": analyzed_posts,
+    }
+
+
+# ── Subreddit live monitor ────────────────────────────────────────────────────
+
+def check_new_posts(subreddit_url: str) -> dict:
+    """
+    Poll a subreddit for new posts since the last check.
+    Call this repeatedly (e.g. every 5-10 min) to get live updates.
+    New posts are auto-analyzed and returned.
+    """
+    print(f"[MONITOR] checking for new posts: {subreddit_url}")
+    items = _scrape_subreddit_posts(subreddit_url, max_posts=10)
+    posts_raw = [i for i in items if i.get("dataType") == "post" or i.get("title")]
+
+    subreddit_name = posts_raw[0].get("communityName", subreddit_url) if posts_raw else subreddit_url
+    state = _monitor_state.get(subreddit_name, {"last_post_ids": set(), "new_posts": []})
+    known_ids = state["last_post_ids"]
+
+    new_raw = [p for p in posts_raw if p.get("id", "") not in known_ids]
+    print(f"[MONITOR] found {len(new_raw)} new posts")
+
+    new_analyzed = []
+    for p in new_raw:
+        analyzed = _analyze_post_brief(p)
+        new_analyzed.append(analyzed)
+        known_ids.add(p.get("id", ""))
+
+    _monitor_state[subreddit_name] = {"last_post_ids": known_ids, "new_posts": new_analyzed}
+
+    return {
+        "subreddit": subreddit_name,
+        "new_posts_found": len(new_analyzed),
+        "new_posts": new_analyzed,
+        "tip": "Call this endpoint again in 5-10 minutes to check for more new posts.",
     }
