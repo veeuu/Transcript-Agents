@@ -294,6 +294,7 @@ class AppAnalysis(BaseModel):
     reviews_scraped: Optional[int] = None
     negative_reviews_count: Optional[int] = None
     negative_reviews: Optional[List[dict]] = None
+    all_reviews_by_rating: Optional[dict] = None
     summary: Optional[str] = None
     key_features: Optional[List[str]] = None
     target_audience: Optional[str] = None

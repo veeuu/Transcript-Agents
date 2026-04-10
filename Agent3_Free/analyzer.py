@@ -598,30 +598,35 @@ def _get_play_store_details(app_id: str) -> dict:
     return gp_app(app_id, lang="en", country="in")
 
 
-def _get_play_store_reviews(app_id: str, max_reviews: int = 100) -> list:
-    """Fetch Play Store reviews using google-play-scraper — no Apify needed."""
+def _get_play_store_reviews(app_id: str) -> list:
+    """Fetch 20 reviews per star rating (1-5) = 100 total using google-play-scraper."""
     from google_play_scraper import reviews as gp_reviews, Sort
     all_reviews = []
-    # fetch newest
-    newest, _ = gp_reviews(app_id, lang="en", country="in", sort=Sort.NEWEST, count=max_reviews // 2)
-    # fetch most critical (lowest rated)
-    critical, _ = gp_reviews(app_id, lang="en", country="in", sort=Sort.MOST_RELEVANT, count=max_reviews // 2, filter_score_with=1)
-    critical2, _ = gp_reviews(app_id, lang="en", country="in", sort=Sort.MOST_RELEVANT, count=max_reviews // 2, filter_score_with=2)
-    # merge and deduplicate
     seen = set()
-    for r in newest + critical + critical2:
-        rid = r.get("reviewId", "")
-        if rid not in seen:
-            seen.add(rid)
-            all_reviews.append({
-                "reviewId": rid,
-                "rating": r.get("score"),
-                "reviewer": r.get("userName", ""),
-                "date": str(r.get("at", ""))[:10],
-                "body": r.get("content", ""),
-                "appVersion": r.get("appVersion", ""),
-                "helpfulCounts": r.get("thumbsUpCount", 0),
-            })
+    for star in [1, 2, 3, 4, 5]:
+        try:
+            result, _ = gp_reviews(
+                app_id, lang="en", country="in",
+                sort=Sort.MOST_RELEVANT,
+                count=20,
+                filter_score_with=star,
+            )
+            for r in result:
+                rid = r.get("reviewId", "")
+                if rid not in seen:
+                    seen.add(rid)
+                    all_reviews.append({
+                        "reviewId": rid,
+                        "rating": r.get("score"),
+                        "reviewer": r.get("userName", ""),
+                        "date": str(r.get("at", ""))[:10],
+                        "body": r.get("content", ""),
+                        "appVersion": r.get("appVersion", ""),
+                        "helpfulCounts": r.get("thumbsUpCount", 0),
+                    })
+            print(f"[PLAY] {star}★ reviews fetched: {len(result)}")
+        except Exception as e:
+            print(f"[PLAY] {star}★ fetch error: {e}")
     return all_reviews
 
 
@@ -708,19 +713,20 @@ def _analyze_play_app(input_str: str) -> dict:
 
     details = _get_play_store_details(app_id)
     print(f"[PLAY] fetching reviews...")
-    reviews_raw = _get_play_store_reviews(app_id, max_reviews=100)
+    reviews_raw = _get_play_store_reviews(app_id)
 
-    # split positive and negative
+    # split by rating
     negative_reviews_raw = [r for r in reviews_raw if (r.get("rating") or 5) <= 2]
+    neutral_reviews_raw  = [r for r in reviews_raw if (r.get("rating") or 0) == 3]
     positive_reviews_raw = [r for r in reviews_raw if (r.get("rating") or 0) >= 4]
 
     all_reviews_text = "\n".join(
         f"[{r.get('rating')}★] {(r.get('body') or '')[:200]}"
-        for r in reviews_raw[:40]
+        for r in reviews_raw
     )
     negative_reviews_text = "\n".join(
         f"[{r.get('rating')}★] {(r.get('body') or '')[:300]}"
-        for r in negative_reviews_raw[:20]
+        for r in negative_reviews_raw
     )
 
     description = (details.get("description") or "")[:1500]
@@ -777,14 +783,21 @@ Context:
         "negative_reviews": [
             {
                 "rating": r.get("rating"),
-                "author": r.get("reviewer", r.get("author", "")),
+                "author": r.get("reviewer", ""),
                 "date": r.get("date", ""),
-                "version": r.get("appVersion", r.get("version", "")),
-                "review": (r.get("body") or ""),
+                "version": r.get("appVersion", ""),
+                "review": r.get("body", ""),
                 "helpful_votes": r.get("helpfulCounts", 0),
             }
-            for r in sorted(negative_reviews_raw, key=lambda x: x.get("helpfulCounts", 0), reverse=True)[:20]
+            for r in sorted(negative_reviews_raw, key=lambda x: x.get("helpfulCounts", 0), reverse=True)
         ],
+        "all_reviews_by_rating": {
+            "1_star": [{"author": r.get("reviewer",""), "date": r.get("date",""), "review": r.get("body",""), "helpful_votes": r.get("helpfulCounts",0)} for r in reviews_raw if r.get("rating") == 1],
+            "2_star": [{"author": r.get("reviewer",""), "date": r.get("date",""), "review": r.get("body",""), "helpful_votes": r.get("helpfulCounts",0)} for r in reviews_raw if r.get("rating") == 2],
+            "3_star": [{"author": r.get("reviewer",""), "date": r.get("date",""), "review": r.get("body",""), "helpful_votes": r.get("helpfulCounts",0)} for r in reviews_raw if r.get("rating") == 3],
+            "4_star": [{"author": r.get("reviewer",""), "date": r.get("date",""), "review": r.get("body",""), "helpful_votes": r.get("helpfulCounts",0)} for r in reviews_raw if r.get("rating") == 4],
+            "5_star": [{"author": r.get("reviewer",""), "date": r.get("date",""), "review": r.get("body",""), "helpful_votes": r.get("helpfulCounts",0)} for r in reviews_raw if r.get("rating") == 5],
+        },
         "summary": analysis.get("summary"),
         "key_features": analysis.get("key_features", []),
         "target_audience": analysis.get("target_audience"),
