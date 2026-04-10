@@ -136,10 +136,11 @@ def analyze_video(video_url: str) -> dict:
     print("[GEMINI] analyzing video...")
     analysis = _ask_json(f"""Analyze this YouTube video and return a JSON object with these keys:
 - "summary": 2-3 sentence summary of what the video is about
-ain_topics": list of main topics covered (max 6)
+- "main_topics": list of main topics covered (max 6)
 - "sentiment": overall sentiment — "Positive", "Negative", or "Neutral"
 - "target_audience": who this video is aimed at (1 sentence)
 - "key_insights": list of 3-5 most important points or takeaways
+- "negative_points": list of criticisms, controversies, downsides, or negative aspects mentioned (max 5), or []
 - "content_type": e.g. "Tutorial", "Review", "News", "Opinion", "Interview", "Vlog", "Stand-up Comedy", etc.
 - "call_to_action": what the creator asks viewers to do, or null
 
@@ -166,6 +167,7 @@ Video cxt:
         "sentiment": analysis.get("sentiment"),
         "target_audience": analysis.get("target_audience"),
         "key_insights": analysis.get("key_insights", []),
+        "negative_points": analysis.get("negative_points", []),
         "content_type": analysis.get("content_type"),
         "call_to_action": analysis.get("call_to_action"),
         "transcript_available": bool(transcript),

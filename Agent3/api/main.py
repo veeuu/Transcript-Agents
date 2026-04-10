@@ -69,6 +69,7 @@ class VideoAnalysis(BaseModel):
     sentiment: Optional[str] = None
     target_audience: Optional[str] = None
     key_insights: Optional[List[str]] = None
+    negative_points: Optional[List[str]] = None
     content_type: Optional[str] = None
     call_to_action: Optional[str] = None
     transcript_available: Optional[bool] = None
