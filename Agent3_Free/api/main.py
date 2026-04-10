@@ -12,7 +12,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional, List
 
-from analyzer import analyze_video, analyze_channel, analyze_reddit_post, analyze_subreddit, check_new_posts
+from analyzer import analyze_video, analyze_channel, analyze_reddit_post, analyze_subreddit, check_new_posts, analyze_app
 
 app = FastAPI(
     title="YouTube & Reddit Analysis API (Free)",
@@ -62,6 +62,7 @@ class VideoAnalysis(BaseModel):
     sentiment: Optional[str] = None
     target_audience: Optional[str] = None
     key_insights: Optional[List[str]] = None
+    negative_points: Optional[List[str]] = None
     content_type: Optional[str] = None
     call_to_action: Optional[str] = None
     transcript_available: Optional[bool] = None
@@ -149,6 +150,7 @@ class RedditAnalysis(BaseModel):
     overall_sentiment: Optional[str] = None
     community_sentiment: Optional[str] = None
     key_opinions: Optional[List[str]] = None
+    negative_points: Optional[List[str]] = None
     post_type: Optional[str] = None
     controversy_level: Optional[str] = None
     key_takeaway: Optional[str] = None
@@ -192,6 +194,7 @@ class PostBrief(BaseModel):
     main_topics: Optional[List[str]] = None
     overall_sentiment: Optional[str] = None
     community_sentiment: Optional[str] = None
+    negative_points: Optional[List[str]] = None
     post_type: Optional[str] = None
     controversy_level: Optional[str] = None
 
@@ -244,5 +247,78 @@ def monitor_subreddit(req: SubredditRequest):
     """
     try:
         return check_new_posts(req.url)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+class AppRequest(BaseModel):
+    input: str
+    store: str = "auto"  # "play", "appstore", or "auto"
+
+    class Config:
+        json_schema_extra = {
+            "example": {
+                "input": "https://play.google.com/store/apps/details?id=com.nextbillion.groww",
+                "store": "auto"
+            }
+        }
+
+
+class AppAnalysis(BaseModel):
+    store: Optional[str] = None
+    app_id: Optional[str] = None
+    app_name: Optional[str] = None
+    company: Optional[str] = None
+    developer_email: Optional[str] = None
+    developer_website: Optional[str] = None
+    play_store_url: Optional[str] = None
+    app_store_url: Optional[str] = None
+    icon: Optional[str] = None
+    header_image: Optional[str] = None
+    screenshots: Optional[List[str]] = None
+    genre: Optional[str] = None
+    rating: Optional[float] = None
+    total_ratings: Optional[int] = None
+    total_reviews: Optional[int] = None
+    installs: Optional[str] = None
+    real_installs: Optional[int] = None
+    file_size_mb: Optional[float] = None
+    price: Optional[str] = None
+    content_rating: Optional[str] = None
+    version: Optional[str] = None
+    released: Optional[str] = None
+    last_updated: Optional[str] = None
+    rating_breakdown: Optional[dict] = None
+    description_preview: Optional[str] = None
+    recent_changes: Optional[str] = None
+    reviews_scraped: Optional[int] = None
+    negative_reviews_count: Optional[int] = None
+    negative_reviews: Optional[List[dict]] = None
+    summary: Optional[str] = None
+    key_features: Optional[List[str]] = None
+    target_audience: Optional[str] = None
+    overall_sentiment: Optional[str] = None
+    top_complaints: Optional[List[str]] = None
+    top_praises: Optional[List[str]] = None
+    competitive_position: Optional[str] = None
+    recent_issues: Optional[List[str]] = None
+
+
+@app.post("/analyze/app", response_model=AppAnalysis, tags=["App Store"])
+def app_analysis(req: AppRequest):
+    """
+    Analyze an app from Google Play Store or Apple App Store.
+
+    Accepts:
+    - Play Store URL: https://play.google.com/store/apps/details?id=com.example.app
+    - App Store URL: https://apps.apple.com/in/app/name/id123456789
+    - Package name: com.example.app (Play Store)
+    - App ID: 123456789 (App Store)
+
+    Returns: app metadata, ratings, installs, screenshots, description,
+    AI-generated summary, key features, top complaints, top praises, sentiment.
+    """
+    try:
+        return analyze_app(req.input, store=req.store)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
