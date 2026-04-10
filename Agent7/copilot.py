@@ -8,47 +8,23 @@ Inputs: Agent 1 (transcript), Agent 4 (problems), Agent 5 (insights), Agent 6 (f
 
 import os
 import json
+import sys
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from dotenv import load_dotenv
-from huggingface_hub import InferenceClient
+from shared.llm import ask_json, ask_text
 
 load_dotenv()
 
-HF_TOKEN = os.environ.get("HF_TOKEN", "")
-HF_MODEL = "Qwen/Qwen2.5-72B-Instruct"
-_client = InferenceClient(api_key=HF_TOKEN)
-
-# In-memory context store — loaded once, reused across queries
 _context_cache: dict = {}
 
 
 # ── LLM helper ────────────────────────────────────────────────────────────────
 
-def _ask(prompt: str, max_tokens: int = 1000) -> str:
-    try:
-        resp = _client.chat_completion(
-            model=HF_MODEL,
-            messages=[{"role": "user", "content": prompt}],
-            max_tokens=max_tokens,
-            temperature=0.2,
-        )
-        return resp.choices[0].message.content.strip()
-    except Exception as e:
-        print(f"[HF ERROR] {e}")
-        return ""
-
-
 def _ask_json(prompt: str, max_tokens: int = 1000) -> dict:
-    raw = _ask(prompt, max_tokens)
-    if "```" in raw:
-        for part in raw.split("```"):
-            part = part.strip().lstrip("json").strip()
-            if part.startswith("{"):
-                raw = part
-                break
-    try:
-        return json.loads(raw.strip())
-    except Exception:
-        return {"answer": raw, "evidence": [], "confidence": "Medium"}
+    result = ask_json(prompt, max_tokens=max_tokens)
+    if not isinstance(result, dict):
+        return {"answer": str(result), "evidence": [], "confidence": "Medium"}
+    return result
 
 
 # ── Context builder ───────────────────────────────────────────────────────────

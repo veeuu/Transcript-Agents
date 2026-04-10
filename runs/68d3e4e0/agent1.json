@@ -1,0 +1,107 @@
+{
+  "transcript_id": "e26af54c0ff35a9c58abb1d8e101c9a9",
+  "metadata": {
+    "title": "Upstox Quarterly Product Strategy - Q2 2026",
+    "topic": "",
+    "duration": "",
+    "participants": [],
+    "total_turns": 14
+  },
+  "analysis": {
+    "title": "Q2 Growth and Product Strategy Review",
+    "summary": "The leadership team addressed rising Gen-Z churn and technical bottlenecks in KYC and SIP tracking. They decided to pivot toward a 'Lite' product experience and technical infrastructure upgrades to better compete with market rivals.",
+    "major_decisions": [
+      "Develop 'Upstox Lite' mode for first-time investors",
+      "Implement OCR-based KYC fallback to solve Digilocker issues",
+      "Streamline MTF journey to 1-click access",
+      "Migrate SIP database for real-time synchronization",
+      "Initiate targeted growth program for female investors"
+    ],
+    "problems_identified": [
+      "12% Gen-Z churn rate due to intimidating 'Pro' UI",
+      "15% failure rate in e-KYC flow via Digilocker",
+      "Poor MTF discovery (4-click journey)",
+      "48-hour lag in MF SIP dashboard tracking",
+      "Competitive pressure from Groww and Angel One"
+    ],
+    "solutions_pitched": [
+      "Introduction of 'Upstox Lite' toggle for beginners",
+      "Launch of 'Upstox Wealth' AI-driven asset allocation tool",
+      "Fallback OCR-based KYC system",
+      "Targeted 'Switch to Upstox' campaign with zero-brokerage window",
+      "Educational content modules for female investor segment"
+    ],
+    "tone": {
+      "positive": [
+        "Strong growth in female user segment (+35% YoY)",
+        "Clear identification of core product moats",
+        "Proactive alignment on Q2 priorities"
+      ],
+      "negative": [
+        "Frustration over third-party API dependencies",
+        "Concerns regarding loss of user trust due to dashboard lag",
+        "Competitive anxiety regarding market position against Groww and Angel One"
+      ]
+    },
+    "timeline_of_discussion": [
+      {
+        "timestamp": "00:00-05:00",
+        "section": "Growth & Churn Analysis",
+        "key_point": "Gen-Z churn identified as product-fit issue; KYC failure is a primary conversion blocker."
+      },
+      {
+        "timestamp": "05:00-10:00",
+        "section": "Competitive Landscape & Revenue",
+        "key_point": "Poor UX for MTF and SIP data lag are undermining competitive advantages."
+      },
+      {
+        "timestamp": "10:00-15:00",
+        "section": "Priorities & Action Items",
+        "key_point": "Q2 focus set on Lite UI, infrastructure fixes, and female investor growth."
+      }
+    ],
+    "improvements_for_next_call": [
+      "Prepare status report on the migration of the SIP database",
+      "Review specific KPIs for the 'Upstox Lite' launch",
+      "Define success metrics for the women investors educational program"
+    ],
+    "next_steps": [
+      "Kavita: Own 'Upstox Lite' UI and AI Advisor development",
+      "Dhruv: Prioritize OCR KYC fallback and MTF dashboard update",
+      "Anjali: Launch community/educational program for female investors"
+    ],
+    "decision_making_insights": [
+      "The team effectively prioritizes technical stability (KYC/SIP) alongside product innovation to reduce churn.",
+      "Decisions are driven by a need to balance complex trading features with mass-market accessibility.",
+      "Delegation is clear, with individual owners assigned to distinct high-impact product areas."
+    ],
+    "metadata": {
+      "title": "Upstox Quarterly Product Strategy - Q2 2026",
+      "topic": "",
+      "duration": "",
+      "participants": [],
+      "total_turns": 14
+    },
+    "speaker_contribution": {
+      "Participants": 1,
+      "Ravi": 4,
+      "Kavita": 3,
+      "Anjali": 3,
+      "Dhruv": 3
+    },
+    "timeline": [
+      {
+        "timestamp": "00:00-05:00",
+        "section": "GROWTH & CHURN ANALYSIS"
+      },
+      {
+        "timestamp": "05:00-10:00",
+        "section": "COMPETITIVE LANDSCAPE & REVENUE"
+      },
+      {
+        "timestamp": "10:00-15:00",
+        "section": "PRIORITIES & ACTION ITEMS"
+      }
+    ]
+  }
+}

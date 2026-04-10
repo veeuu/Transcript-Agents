@@ -17,7 +17,7 @@ from transcript_pipeline.rag_store import query_rag
 
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 genai.configure(api_key=GEMINI_API_KEY)
-_model = genai.GenerativeModel("gemini-2.5-flash")
+_model = genai.GenerativeModel("gemini-3.1-flash-lite-preview")
 
 SYSTEM_PROMPT = """You are an intelligent assistant with access to internal founder meeting transcripts.
 You help the team recall decisions, problems, next steps, and insights from past meetings.

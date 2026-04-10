@@ -1,0 +1,83 @@
+{
+  "total_problems": 4,
+  "problems": [
+    {
+      "problem": "Intimidating UI for first-time investors, leading to high Gen-Z churn rate",
+      "evidence": [
+        "12% Gen-Z churn rate due to intimidating 'Pro' UI",
+        "Competitive pressure from Groww and Angel One",
+        "User-friendly design and easy to operate"
+      ],
+      "frequency": "High",
+      "user_type": "Beginner",
+      "source_mix": [
+        "Internal",
+        "Competitor"
+      ],
+      "positive_points": [
+        "Strong growth in female user segment (+35% YoY)"
+      ],
+      "negative_points": [
+        "Intimidating 'Pro' UI",
+        "High Gen-Z churn rate"
+      ]
+    },
+    {
+      "problem": "Technical issues with e-KYC flow via Digilocker, resulting in high failure rate",
+      "evidence": [
+        "15% failure rate in e-KYC flow via Digilocker",
+        "Implement OCR-based KYC fallback to solve Digilocker issues"
+      ],
+      "frequency": "Medium",
+      "user_type": "Intermediate",
+      "source_mix": [
+        "Internal"
+      ],
+      "positive_points": [
+        "Proactive alignment on Q2 priorities"
+      ],
+      "negative_points": [
+        "15% failure rate in e-KYC flow via Digilocker",
+        "Frustration over third-party API dependencies"
+      ]
+    },
+    {
+      "problem": "Poor discovery and long journey for MTF, leading to user frustration",
+      "evidence": [
+        "Poor MTF discovery (4-click journey)",
+        "Streamline MTF journey to 1-click access"
+      ],
+      "frequency": "Medium",
+      "user_type": "Intermediate",
+      "source_mix": [
+        "Internal"
+      ],
+      "positive_points": [
+        "Offers margin trading facility (MTF)"
+      ],
+      "negative_points": [
+        "Poor MTF discovery (4-click journey)",
+        "4-click journey"
+      ]
+    },
+    {
+      "problem": "Lag in MF SIP dashboard tracking, causing concern over user trust",
+      "evidence": [
+        "48-hour lag in MF SIP dashboard tracking",
+        "Migrate SIP database for real-time synchronization"
+      ],
+      "frequency": "Medium",
+      "user_type": "Advanced",
+      "source_mix": [
+        "Internal"
+      ],
+      "positive_points": [
+        "Clear identification of core product moats"
+      ],
+      "negative_points": [
+        "48-hour lag in MF SIP dashboard tracking",
+        "Concerns regarding loss of user trust due to dashboard lag"
+      ]
+    }
+  ]
+}

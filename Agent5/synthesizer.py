@@ -15,38 +15,18 @@ Output schema per insight:
 
 import os
 import json
+import sys
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from dotenv import load_dotenv
-from huggingface_hub import InferenceClient
+from shared.llm import ask_json_array
 
 load_dotenv()
-
-HF_TOKEN = os.environ.get("HF_TOKEN", "")
-# mistral-small is fast, cheap, excellent at synthesis and reasoning
-HF_MODEL = "Qwen/Qwen2.5-72B-Instruct"
-_client = InferenceClient(api_key=HF_TOKEN)
 
 
 # ── LLM helper ────────────────────────────────────────────────────────────────
 
 def _ask_json(prompt: str, max_tokens: int = 2500) -> list | dict:
-    try:
-        resp = _client.chat_completion(
-            model=HF_MODEL,
-            messages=[{"role": "user", "content": prompt}],
-            max_tokens=max_tokens,
-            temperature=0.15,
-        )
-        raw = resp.choices[0].message.content.strip()
-        if "```" in raw:
-            for part in raw.split("```"):
-                part = part.strip().lstrip("json").strip()
-                if part.startswith("[") or part.startswith("{"):
-                    raw = part
-                    break
-        return json.loads(raw.strip())
-    except Exception as e:
-        print(f"[HF ERROR] {e}")
-        return []
+    return ask_json_array(prompt, max_tokens=max_tokens)
 
 
 # ── Input flatteners ──────────────────────────────────────────────────────────

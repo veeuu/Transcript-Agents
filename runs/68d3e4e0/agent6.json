@@ -1,0 +1,69 @@
+{
+  "total_features": 4,
+  "features": [
+    {
+      "feature_name": "Upstox Lite",
+      "problem": "Intimidating UI for first-time investors",
+      "why_it_matters": "If not solved, first-time investors, especially Gen-Z, will continue to experience high churn rates due to the complexity of the current product experience, leading to a loss of potential long-term users and revenue.",
+      "solution": "Develop a simplified 'Lite' mode for first-time investors, streamlining the onboarding process and improving the overall user experience. This will involve simplifying the UI, reducing the number of steps required for onboarding, and providing clear guidance throughout the process. The 'Lite' mode will also include an improved KYC process to reduce technical issues.",
+      "user_flow": [
+        "User downloads the Upstox app and selects 'Lite' mode",
+        "User is guided through a simplified onboarding process",
+        "User completes the improved KYC process",
+        "User is introduced to the main features of the 'Lite' mode"
+      ],
+      "expected_impact": "Reduces Gen-Z churn rate by 8% through a simplified and streamlined onboarding process",
+      "priority": "Critical",
+      "effort": "Medium",
+      "target_user": "Beginner"
+    },
+    {
+      "feature_name": "OCR-based KYC Fallback",
+      "problem": "Technical issues with e-KYC flow via Digilocker",
+      "why_it_matters": "If not solved, users will continue to experience frustration and disappointment due to the high failure rate of the e-KYC flow via Digilocker, potentially leading to a loss of trust in the platform and decreased user acquisition.",
+      "solution": "Implement an OCR-based KYC fallback to solve technical issues with the e-KYC flow via Digilocker. This will provide an alternative method for users to complete the KYC process, reducing the failure rate and improving the overall user experience.",
+      "user_flow": [
+        "User attempts to complete the e-KYC flow via Digilocker",
+        "If the e-KYC flow fails, the user is prompted to use the OCR-based KYC fallback",
+        "User uploads required documents for the OCR-based KYC process",
+        "User completes the OCR-based KYC process"
+      ],
+      "expected_impact": "Reduces e-KYC flow failure rate by 10% through the implementation of an OCR-based KYC fallback",
+      "priority": "High",
+      "effort": "Low",
+      "target_user": "Intermediate"
+    },
+    {
+      "feature_name": "Streamlined MTF Journey",
+      "problem": "Poor discovery and long journey for MTF",
+      "why_it_matters": "If not solved, users will continue to experience frustration due to the poor discovery and long journey for MTF, potentially leading to a decrease in user engagement and revenue.",
+      "solution": "Streamline the MTF journey to provide 1-click access, improving discovery and reducing the number of steps required for users to access MTF. This will involve redesigning the UI to prominently feature MTF and simplifying the navigation process.",
+      "user_flow": [
+        "User logs in to the Upstox app",
+        "User is presented with a prominent MTF option",
+        "User selects the MTF option and is taken directly to the MTF dashboard",
+        "User can easily access and manage their MTF investments"
+      ],
+      "expected_impact": "Increases MTF engagement by 15% through a streamlined and easily accessible journey",
+      "priority": "Medium",
+      "effort": "Low",
+      "target_user": "Intermediate"
+    },
+    {
+      "feature_name": "Real-time SIP Dashboard",
+      "problem": "Lag in MF SIP dashboard tracking",
+      "why_it_matters": "If not solved, users will continue to experience concern over the accuracy and reliability of the MF SIP dashboard, potentially leading to a loss of trust in the platform and decreased user satisfaction.",
+      "solution": "Migrate the SIP database for real-time synchronization, reducing the lag in MF SIP dashboard tracking and improving the overall user experience. This will involve upgrading the technical infrastructure to support real-time data synchronization and reducing dependencies on third-party APIs.",
+      "user_flow": [
+        "User logs in to the Upstox app",
+        "User navigates to the MF SIP dashboard",
+        "User views real-time updates and tracking information",
+        "User can make informed investment decisions based on accurate and up-to-date information"
+      ],
+      "expected_impact": "Reduces MF SIP dashboard tracking lag by 100% through real-time synchronization",
+      "priority": "High",
+      "effort": "High",
+      "target_user": "Advanced"
+    }
+  ]
+}
