@@ -1,0 +1,151 @@
+{
+  "total_problems": 6,
+  "problems": [
+    {
+      "problem": "Slow performance and lag during trading, especially during peak hours.",
+      "evidence": [
+        "There is a lot of lag and the refresh is not as fast as other apps. In the dashboard, the app needs to show the up and down figurewise also, not just percentage wise.",
+        "The app works too slowly, sometimes the search results just don't load.",
+        "On the listing day, the stock was not visible on the Groww app for around 10 minutes after it went live on the exchange. During the same time, it was available for trading on other brokerage platforms."
+      ],
+      "frequency": "High",
+      "user_type": "Intermediate",
+      "source_mix": [
+        "App Store",
+        "Reddit"
+      ],
+      "positive_points": [
+        "Free demat account",
+        "Wide range of investment options",
+        "No AMC fees or hidden charges",
+        "User-friendly interface"
+      ],
+      "negative_points": [
+        "Slow performance and lag during trading",
+        "Issues with payment and withdrawal processes",
+        "Unresponsive customer support",
+        "Problems with the trading chart and technical analysis tools",
+        "Reliability issues during peak trading hours"
+      ]
+    },
+    {
+      "problem": "Payment and withdrawal processes are unreliable and cause frustration.",
+      "evidence": [
+        "Issues with payment and withdrawal processes",
+        "The help and support section has an option of ' raise a ticket' ,which doesn't lead to anywhere. That button is unresponsive."
+      ],
+      "frequency": "Medium",
+      "user_type": "Beginner",
+      "source_mix": [
+        "App Store",
+        "Reddit"
+      ],
+      "positive_points": [
+        "Free demat account",
+        "Wide range of investment options",
+        "No AMC fees or hidden charges",
+        "User-friendly interface"
+      ],
+      "negative_points": [
+        "Slow performance and lag during trading",
+        "Issues with payment and withdrawal processes",
+        "Unresponsive customer support",
+        "Problems with the trading chart and technical analysis tools",
+        "Reliability issues during peak trading hours"
+      ]
+    },
+    {
+      "problem": "Customer support is unresponsive and difficult to reach.",
+      "evidence": [
+        "Unresponsive customer support",
+        "The help and support section has an option of ' raise a ticket' ,which doesn't lead to anywhere. That button is unresponsive."
+      ],
+      "frequency": "Medium",
+      "user_type": "Beginner",
+      "source_mix": [
+        "App Store",
+        "Reddit"
+      ],
+      "positive_points": [
+        "Free demat account",
+        "Wide range of investment options",
+        "No AMC fees or hidden charges",
+        "User-friendly interface"
+      ],
+      "negative_points": [
+        "Slow performance and lag during trading",
+        "Issues with payment and withdrawal processes",
+        "Unresponsive customer support",
+        "Problems with the trading chart and technical analysis tools",
+        "Reliability issues during peak trading hours"
+      ]
+    },
+    {
+      "problem": "Trading charts and technical analysis tools are problematic and unreliable.",
+      "evidence": [
+        "Problems with the trading chart and technical analysis tools",
+        "On the listing day, the stock was not visible on the Groww app for around 10 minutes after it went live on the exchange. During the same time, it was available for trading on other brokerage platforms."
+      ],
+      "frequency": "Medium",
+      "user_type": "Advanced",
+      "source_mix": [
+        "App Store",
+        "Reddit"
+      ],
+      "positive_points": [
+        "Free demat account",
+        "Wide range of investment options",
+        "No AMC fees or hidden charges",
+        "User-friendly interface"
+      ],
+      "negative_points": [
+        "Slow performance and lag during trading",
+        "Issues with payment and withdrawal processes",
+        "Unresponsive customer support",
+        "Problems with the trading chart and technical analysis tools",
+        "Reliability issues during peak trading hours"
+      ]
+    },
+    {
+      "problem": "Noise in revenue strings (e.g., '$', '+') causes normalization issues in data processing.",
+      "evidence": [
+        "Noise in revenue strings (e.g., '$', '+') causing normalization issues."
+      ],
+      "frequency": "Low",
+      "user_type": "Intermediate",
+      "source_mix": [
+        "Internal"
+      ],
+      "positive_points": [
+        "Confidence in technical solutions for data cleaning and performance",
+        "Progress on data provider agreements and legal clearances",
+        "Clear action items and a structured plan for beta launch",
+        "Assurance of scalability despite visual enhancements"
+      ],
+      "negative_points": [
+        "Noise in revenue strings causing normalization issues",
+        "Potential front-end latency concern if the model crunches floats"
+      ]
+    },
+    {
+      "problem": "Compliance issues with specific labels (e.g., 'Hidden Plateau') that could be construed as investment advice.",
+      "evidence": [
+        "Compliance issue with using 'Hidden Plateau' as a label, as it could imply explicit Buy or Sell advice.",
+        "Compliance concerns regarding specific labeling ('Hidden Plateau') that could be construed as investment advice."
+      ],
+      "frequency": "Low",
+      "user_type": "Intermediate",
+      "source_mix": [
+        "Internal"
+      ],
+      "positive_points": [
+        "Cleared legal hurdles for utilizing Hierarchy Decision Maker metadata",
+        "Progress on data provider agreements and legal clearances",
+        "Clear action items and a structured plan for beta launch"
+      ],
+      "negative_points": [
+        "Compliance issue with using 'Hidden Plateau' as a label, as it could imply explicit Buy or Sell advice"
+      ]
+    }
+  ]
+}

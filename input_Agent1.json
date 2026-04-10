@@ -1,0 +1,1575 @@
+{
+  "transcript_id": "0a88b7996be532ba8fa0069137722ecc",
+  "metadata": {
+    "title": "Vertex Founders Strategy Session",
+    "topic": "",
+    "duration": "",
+    "participants": [
+      {
+        "name": "Alex",
+        "role": "CEO"
+      },
+      {
+        "name": "Sarah",
+        "role": "CTO"
+      },
+      {
+        "name": "Marcus",
+        "role": "CPO"
+      },
+      {
+        "name": "Elena",
+        "role": "COO"
+      }
+    ],
+    "total_turns": 13
+  },
+  "analysis": {
+    "title": "Vertex Founders Strategy Session: Nexus-1 Beta Readiness",
+    "summary": "Founders reviewed Nexus-1 beta readiness, focusing on data integrity, technical performance, and legal compliance. They discussed data cleaning, provider agreements, competitive positioning, and a phased user rollout strategy.",
+    "major_decisions": [
+      "Optimized data cleaning script for revenue strings by implementing a regex-based cleaner.",
+      "Renegotiated primary data provider tier to secure a 99.9% uptime guarantee.",
+      "Cleared legal hurdles for utilizing Hierarchy Decision Maker metadata.",
+      "Moved 'Category' tags to the top of the company profile for enhanced user insights.",
+      "Planned user rollout in batches of 500 from the 5,000 existing signups."
+    ],
+    "problems_identified": [
+      "Noise in revenue strings (e.g., '$', '+') causing normalization issues.",
+      "Potential front-end latency concern if the model crunches floats (addressed).",
+      "Compliance issue with using 'Hidden Plateau' as a label, as it could imply explicit Buy or Sell advice."
+    ],
+    "solutions_pitched": [
+      "Implemented a regex-based cleaner to strip non-numeric symbols from revenue strings while preserving 'B' and 'M' multipliers.",
+      "Processed cleaned values asynchronously and cached them in the real-time layer to prevent front-end latency.",
+      "Renegotiated data provider contracts for improved uptime and data access.",
+      "Utilized a distributed Redis layer to maintain small data packet sizes, even with increased visual depth.",
+      "Moved Category tags to improve user understanding of revenue growth sources."
+    ],
+    "tone": {
+      "positive": [
+        "Confidence in technical solutions for data cleaning and performance.",
+        "Progress on data provider agreements and legal clearances.",
+        "Clear action items and a structured plan for beta launch.",
+        "Assurance of scalability despite visual enhancements."
+      ],
+      "negative": [
+        "Compliance concerns regarding specific labeling ('Hidden Plateau') that could be construed as investment advice."
+      ]
+    },
+    "timeline_of_discussion": [
+      {
+        "timestamp": "00:00-02:00",
+        "section": "THE DATA INTEGRITY & CORE TECH",
+        "key_point": "CEO initiates discussion on Nexus-1 beta launch readiness, focusing on data ingestion and correlations."
+      },
+      {
+        "timestamp": "00:00-02:00",
+        "section": "THE DATA INTEGRITY & CORE TECH",
+        "key_point": "CTO details optimization of revenue cleaning script to handle noisy data."
+      },
+      {
+        "timestamp": "00:00-02:00",
+        "section": "THE DATA INTEGRITY & CORE TECH",
+        "key_point": "CPO queries front-end latency implications; CTO confirms asynchronous processing to prevent lag."
+      },
+      {
+        "timestamp": "00:00-02:00",
+        "section": "THE DATA INTEGRITY & CORE TECH",
+        "key_point": "COO updates on renegotiated data provider terms (99.9% uptime) and legal clearance for metadata."
+      },
+      {
+        "timestamp": "00:00-02:00",
+        "section": "THE DATA INTEGRITY & CORE TECH",
+        "key_point": "CPO discusses UI change for Category tags; COO raises compliance concern about 'Hidden Plateau' label."
+      },
+      {
+        "timestamp": "00:00-02:00",
+        "section": "THE DATA INTEGRITY & CORE TECH",
+        "key_point": "CEO pivots to competitive landscape and confirms target audience as 'Sophisticated Individual'."
+      },
+      {
+        "timestamp": "00:00-02:00",
+        "section": "THE DATA INTEGRITY & CORE TECH",
+        "key_point": "COO reports 5,000 signups and proposes a phased rollout in batches of 500."
+      },
+      {
+        "timestamp": "00:00-02:00",
+        "section": "THE DATA INTEGRITY & CORE TECH",
+        "key_point": "CTO assures the system's ability to handle visual depth without compromising data packet size."
+      },
+      {
+        "timestamp": "00:00-02:00",
+        "section": "THE DATA INTEGRITY & CORE TECH",
+        "key_point": "CEO assigns follow-up tasks and adjourns the meeting."
+      }
+    ],
+    "improvements_for_next_call": [
+      "Allocate specific time slots for discussing compliance issues and potential solutions.",
+      "Consider dedicating distinct segments for technical deep-dives vs. strategic updates.",
+      "Ensure all identified problems have a clear owner and resolution plan by the end of the call.",
+      "Structure the agenda with clear topic transitions to avoid abrupt pivots."
+    ],
+    "next_steps": [
+      "Sarah: Keep refining the revenue cleaning script.",
+      "Elena: Finalize the Terms of Service.",
+      "Marcus: Provide a demo of the Management Stability index by Thursday."
+    ],
+    "decision_making_insights": [
+      "Strategic prioritization of core data integrity and user experience for a successful beta launch.",
+      "Proactive management of compliance risks is critical, especially concerning investment advice language.",
+      "Targeting a specific 'Sophisticated Individual' market niche guides product feature and positioning decisions.",
+      "Continuous negotiation and assurance of data provider reliability is a key operational focus."
+    ],
+    "metadata": {
+      "title": "Vertex Founders Strategy Session",
+      "topic": "",
+      "duration": "",
+      "participants": [
+        {
+          "name": "Alex",
+          "role": "CEO"
+        },
+        {
+          "name": "Sarah",
+          "role": "CTO"
+        },
+        {
+          "name": "Marcus",
+          "role": "CPO"
+        },
+        {
+          "name": "Elena",
+          "role": "COO"
+        }
+      ],
+      "total_turns": 13
+    },
+    "speaker_contribution": {
+      "Transcript": 1,
+      "Alex": 4,
+      "Sarah": 3,
+      "Marcus": 2,
+      "Elena": 3
+    },
+    "timeline": [
+      {
+        "timestamp": "00:00 - 02:00",
+        "section": "THE DATA INTEGRITY & CORE TECH"
+      }
+    ]
+  }
+}
+{
+  "company": "Groww",
+  "website": "https://groww.in",
+  "year_founded": "2016",
+  "founders": [
+    "Lalit Keshre",
+    "Harsh Jain",
+    "Ishan Bansal",
+    "Neeraj Singh"
+  ],
+  "headquarters": "Bengaluru (India)",
+  "platforms": "Mobile",
+  "funding_raised": "$617.81 million",
+  "number_of_users": "1.4 crore active customers",
+  "annual_revenue": "Rs 3,145 crore (FY24)",
+  "key_positioning": "India's #1 Investing Platform Trusted by 2 Cr+ active investors",
+  "revenue_model": null,
+  "differentiators": [
+    "User-friendly design and easy to operate",
+    "Interactive and clean User Interface",
+    "Features like creating your own portfolio",
+    "Responsive support team",
+    "No account opening charges",
+    "Invest in Direct Mutual Funds at zero charges",
+    "Trade Futures & Options with advanced tools",
+    "Real-time monitoring and tracking of investments",
+    "API trading capabilities"
+  ],
+  "user_complaints": [
+    "experiencing many problems",
+    "Why you should never use Groww"
+  ],
+  "strategic_moves": [
+    "introduced a new feature called 'Pause' for F&O traders",
+    "soon-to-be-launched Artificial Intelligence (AI) model to help customers make investments",
+    "scaled by gradually expanding its product offerings",
+    "Wealth management and financial planning tools",
+    "Geographic expansion"
+  ],
+  "new_features": [
+    "Pause for F&O traders",
+    "Artificial Intelligence (AI) model for investment assistance"
+  ]
+}
+{
+  "video_id": "9bZkp7q19f0",
+  "url": "https://www.youtube.com/watch?v=9bZkp7q19f0",
+  "title": "PSY - GANGNAM STYLE(강남스타일) M/V",
+  "channel": "officialpsy",
+  "upload_date": "2012-07-15",
+  "duration": "4m 12s",
+  "view_count": 5904097580,
+  "like_count": 31000000,
+  "comment_count": 5455433,
+  "thumbnail": "https://i.ytimg.com/vi/9bZkp7q19f0/maxresdefault.jpg",
+  "tags": [
+    "#PSY",
+    "#싸이",
+    "#GANGNAMSTYLE"
+  ],
+  "summary": "PSY's 'Gangnam Style' is a catchy K-pop music video that features the artist performing quirky dance moves in various locations around Gangnam, Seoul. The song became a global phenomenon, known for its humorous lyrics and iconic horse-riding dance.",
+  "main_topics": [
+    "K-pop",
+    "Dance",
+    "Humor",
+    "Cultural Phenomenon",
+    "Music Video",
+    "Gangnam"
+  ],
+  "sentiment": "Positive",
+  "target_audience": "Fans of K-pop, music enthusiasts, and anyone looking for an entertaining and catchy tune.",
+  "key_insights": [
+    "The song's success brought international attention to K-pop and Korean culture.",
+    "The 'horse-riding' dance became a global trend and meme.",
+    "The music video's humor and energy contributed to its viral spread."
+  ],
+  "negative_points": [],
+  "content_type": "Music Video",
+  "call_to_action": null,
+  "transcript_available": false
+}
+{
+  "channel": "MrBeast",
+  "channel_url": "https://www.youtube.com/@MrBeast",
+  "videos_analyzed": 10,
+  "date_range": {
+    "latest": "2026-04-04",
+    "oldest": "2025-11-22"
+  },
+  "channel_summary": null,
+  "content_themes": [],
+  "posting_pattern": null,
+  "audience_type": null,
+  "content_style": null,
+  "top_performing_topics": [],
+  "videos": [
+    {
+      "video_id": "8bMh8azh3CY",
+      "url": "https://www.youtube.com/watch?v=8bMh8azh3CY",
+      "title": "100 Pilots Fight For A Private Jet",
+      "upload_date": "2025-12-06",
+      "duration": "28m 45s",
+      "view_count": 140251080,
+      "like_count": 1800000,
+      "summary": null,
+      "main_topics": [],
+      "sentiment": null,
+      "content_type": null
+    },
+    {
+      "video_id": "pAnGwRiQ4-4",
+      "url": "https://www.youtube.com/watch?v=pAnGwRiQ4-4",
+      "title": "$1 vs $1,000,000,000 Futuristic Tech!",
+      "upload_date": "2026-01-24",
+      "duration": "23m 3s",
+      "view_count": 129295224,
+      "like_count": 2900000,
+      "summary": null,
+      "main_topics": [],
+      "sentiment": null,
+      "content_type": null
+    },
+    {
+      "video_id": "JFtlf8RoPZY",
+      "url": "https://www.youtube.com/watch?v=JFtlf8RoPZY",
+      "title": "Trapped On An Island Until I Build A Boat",
+      "upload_date": "2026-03-21",
+      "duration": "30m 13s",
+      "view_count": 101505229,
+      "like_count": 2400000,
+      "summary": null,
+      "main_topics": [],
+      "sentiment": null,
+      "content_type": null
+    },
+    {
+      "video_id": "AoN1K4c7VKE",
+      "url": "https://www.youtube.com/watch?v=AoN1K4c7VKE",
+      "title": "Survive 30 Days Stranded With Your Ex, Win $250,000",
+      "upload_date": "2026-03-07",
+      "duration": "30m 3s",
+      "view_count": 111144308,
+      "like_count": 2200000,
+      "summary": null,
+      "main_topics": [],
+      "sentiment": null,
+      "content_type": null
+    },
+    {
+      "video_id": "QJI0an6irrA",
+      "url": "https://www.youtube.com/watch?v=QJI0an6irrA",
+      "title": "30 Celebrities Fight For $1,000,000!",
+      "upload_date": "2026-01-07",
+      "duration": "41m 39s",
+      "view_count": 116941223,
+      "like_count": 2500000,
+      "summary": null,
+      "main_topics": [],
+      "sentiment": null,
+      "content_type": null
+    },
+    {
+      "video_id": "9WEQts7b8Pw",
+      "url": "https://www.youtube.com/watch?v=9WEQts7b8Pw",
+      "title": "Ages 1 - 100 Race For $250,000!",
+      "upload_date": "2026-02-07",
+      "duration": "23m 31s",
+      "view_count": 96221786,
+      "like_count": 1500000,
+      "summary": null,
+      "main_topics": [],
+      "sentiment": null,
+      "content_type": null
+    },
+    {
+      "video_id": "ZFoNBxpXen4",
+      "url": "https://www.youtube.com/watch?v=ZFoNBxpXen4",
+      "title": "Survive 30 Days Trapped In The Sky, Win $250,000",
+      "upload_date": "2025-12-20",
+      "duration": "37m 25s",
+      "view_count": 171789148,
+      "like_count": 2800000,
+      "summary": null,
+      "main_topics": [],
+      "sentiment": null,
+      "content_type": null
+    },
+    {
+      "video_id": "Ah_uuTwGOYU",
+      "url": "https://www.youtube.com/watch?v=Ah_uuTwGOYU",
+      "title": "World's Strongest Man Vs Robot",
+      "upload_date": "2025-11-22",
+      "duration": "18m 23s",
+      "view_count": 118208695,
+      "like_count": 2000000,
+      "summary": null,
+      "main_topics": [],
+      "sentiment": null,
+      "content_type": null
+    },
+    {
+      "video_id": "DXVHmGoCTco",
+      "url": "https://www.youtube.com/watch?v=DXVHmGoCTco",
+      "title": "50 Streamers Fight for $1,000,000",
+      "upload_date": "2026-04-04",
+      "duration": "42m 20s",
+      "view_count": 73865328,
+      "like_count": 2000000,
+      "summary": null,
+      "main_topics": [],
+      "sentiment": null,
+      "content_type": null
+    },
+    {
+      "video_id": "5OLs1GWB4OA",
+      "url": "https://www.youtube.com/watch?v=5OLs1GWB4OA",
+      "title": "I Built 10 Schools Around The World",
+      "upload_date": "2026-02-21",
+      "duration": "16m 4s",
+      "view_count": 57727000,
+      "like_count": 2200000,
+      "summary": null,
+      "main_topics": [],
+      "sentiment": null,
+      "content_type": null
+    }
+  ]
+}
+{
+  "subreddit": "r/MachineLearning",
+  "subreddit_url": "https://www.reddit.com/r/MachineLearning/",
+  "posts_analyzed": 5,
+  "date_range": {
+    "latest": "2026-04-10T00:24:33.000Z",
+    "oldest": "2026-04-09T15:40:29.000Z"
+  },
+  "subreddit_summary": "The community is currently focused on sharing personal projects and seeking feedback, with a particular emphasis on practical applications of machine learning such as chatbots and image processing.",
+  "hot_topics": [
+    "Personal projects",
+    "Chatbot development",
+    "Image processing"
+  ],
+  "dominant_sentiment": "Positive",
+  "common_post_types": [
+    "Project",
+    "Discussion"
+  ],
+  "notable_trends": [
+    "Users sharing their own machine learning projects and seeking feedback",
+    "Interest in practical applications of ML"
+  ],
+  "posts": [
+    {
+      "post_id": "t3_1sh76ji",
+      "post_url": "https://www.reddit.com/r/MachineLearning/comments/1sh76ji/started_a_video_series_on_building_an/",
+      "title": "Started a video series on building an orchestration layer for LLM post-training [P]",
+      "author": "ReinforcedKnowledge",
+      "created_at": "2026-04-10T00:24:33.000Z",
+      "score": 1,
+      "upvote_ratio": 0.67,
+      "num_comments": 0,
+      "flair": "Project",
+      "summary": "User started a video series on building an orchestration layer for LLM post-training.",
+      "main_topics": [
+        "LLM post-training",
+        "Orchestration layer",
+        "Video series"
+      ],
+      "overall_sentiment": "Positive",
+      "community_sentiment": "Neutral",
+      "negative_points": [],
+      "post_type": "Project",
+      "controversy_level": "Low"
+    },
+    {
+      "post_id": "t3_1sh70d4",
+      "post_url": "https://www.reddit.com/r/MachineLearning/comments/1sh70d4/building_a_chatbot_with_asr_p/",
+      "title": "Building a chatbot with ASR [P]",
+      "author": "Excellent-Couple-394",
+      "created_at": "2026-04-10T00:16:44.000Z",
+      "score": 0,
+      "upvote_ratio": 0.25,
+      "num_comments": 2,
+      "flair": "Project",
+      "summary": "User is building a chatbot with ASR and is looking for cost-effective solutions.",
+      "main_topics": [
+        "Chatbot",
+        "ASR",
+        "Budget constraints"
+      ],
+      "overall_sentiment": "Neutral",
+      "community_sentiment": "Neutral",
+      "negative_points": [],
+      "post_type": "Project",
+      "controversy_level": "Low"
+    },
+    {
+      "post_id": "t3_1sgyoof",
+      "post_url": "https://www.reddit.com/r/MachineLearning/comments/1sgyoof/detecting_mirrored_selfie_images_ocr_the_best_way/",
+      "title": "Detecting mirrored selfie images: OCR the best way? [D]",
+      "author": "dangerousdotnet",
+      "created_at": "2026-04-09T18:53:59.000Z",
+      "score": 0,
+      "upvote_ratio": 0.33,
+      "num_comments": 2,
+      "flair": "Discussion",
+      "summary": "User is trying to detect mirrored selfie images using OCR and is seeking advice.",
+      "main_topics": [
+        "Mirrored selfies",
+        "OCR",
+        "Image processing"
+      ],
+      "overall_sentiment": "Neutral",
+      "community_sentiment": "Neutral",
+      "negative_points": [],
+      "post_type": "Discussion",
+      "controversy_level": "Low"
+    },
+    {
+      "post_id": "t3_1sgtaqi",
+      "post_url": "https://www.reddit.com/r/MachineLearning/comments/1sgtaqi/looking_for_feedback_improvement_ideasp/",
+      "title": "Looking for Feedback &amp; Improvement Ideas[P]",
+      "author": "teabagdiplomat",
+      "created_at": "2026-04-09T15:43:35.000Z",
+      "score": 2,
+      "upvote_ratio": 0.75,
+      "num_comments": 1,
+      "flair": "Project",
+      "summary": "User built a machine learning project and is looking for feedback and improvement ideas.",
+      "main_topics": [
+        "Machine learning project",
+        "Feedback",
+        "Improvement ideas"
+      ],
+      "overall_sentiment": "Positive",
+      "community_sentiment": "Positive",
+      "negative_points": [],
+      "post_type": "Project",
+      "controversy_level": "Low"
+    },
+    {
+      "post_id": "t3_1sgt7ol",
+      "post_url": "https://www.reddit.com/r/MachineLearning/comments/1sgt7ol/p_pca_before_truncation_makes_nonmatryoshka/",
+      "title": "[P] PCA before truncation makes non-Matryoshka embeddings compressible: results on BGE-M3 [P]",
+      "author": "ahbond",
+      "created_at": "2026-04-09T15:40:29.000Z",
+      "score": 41,
+      "upvote_ratio": 0.92,
+      "num_comments": 20,
+      "flair": "Project",
+      "summary": "User tested PCA before truncation to make non-Matryoshka embeddings compressible and shared results.",
+      "main_topics": [
+        "PCA",
+        "Embeddings",
+        "Dimension truncation"
+      ],
+      "overall_sentiment": "Positive",
+      "community_sentiment": "Positive",
+      "negative_points": [],
+      "post_type": "Project",
+      "controversy_level": "Low"
+    }
+  ]
+}
+{
+  "post_url": "https://www.reddit.com/r/MutualfundsIndia/comments/1qz3053/i_save_2lmonth_sharing_my_current_savings_and/",
+  "title": "I save ₹2L/month. Sharing my current savings and investment plan.",
+  "subreddit": "r/MutualfundsIndia",
+  "author": "umesh_xz",
+  "created_at": "2026-02-08T07:50:32.000Z",
+  "score": 30,
+  "upvote_ratio": 0.96,
+  "num_comments": 8,
+  "flair": "Portfolio Review",
+  "body_preview": "I am 28, Software engineer. I am able to save **₹2L/month** after taxes. Looking for feedback on my current savings and investment plan.\n\n**₹80k/month (for every 5 months)** is reserved for **loan prepayment** (₹5L lump sum). The pattern is fixed for personal reasons (can’t really change it). Instead of parking it in savings, I’m investing short-term:\n\n* ~~₹40k – Axis Ultra Short Duration Fund (Direct – Growth)~~\n* ~~₹40k – ICICI Prudential Ultra Short Term Fund (Direct – Growth)~~\n* **₹40k -** ",
+  "top_comments_scraped": 7,
+  "summary": "A 28-year-old software engineer shares his monthly savings and investment plan, seeking feedback on his strategy which includes loan prepayments, short-term investments, long-term equity allocations, and gold accumulation.",
+  "main_topics": [
+    "Savings and Investment Plan",
+    "Loan Prepayment Strategy",
+    "Short-Term Investments",
+    "Long-Term Equity Allocations",
+    "Gold Accumulation",
+    "Tax Efficiency"
+  ],
+  "overall_sentiment": "Positive",
+  "community_sentiment": "Mixed",
+  "key_opinions": [
+    "Consider alternatives like arbitrage funds for tax efficiency.",
+    "The investment plan is well-diversified but could benefit from more detailed tax planning.",
+    "The poster should focus on mutual funds and avoid direct equity investments due to lack of time for research.",
+    "The gold accumulation scheme is a good hedge against inflation.",
+    "The community appreciates the detailed breakdown of the investment plan."
+  ],
+  "negative_points": [
+    "The poster is in the 30% tax bracket and should optimize for tax efficiency.",
+    "Some users suggest avoiding debt funds for tax reasons."
+  ],
+  "post_type": "Discussion",
+  "controversy_level": "Medium",
+  "key_takeaway": "The investment plan is well-structured but could benefit from more tax-efficient strategies and a focus on mutual funds over direct equity investments."
+}
+{
+  "store": "Google Play",
+  "app_id": "com.nextbillion.groww",
+  "app_name": "Groww Stock, Mutual Fund, Gold",
+  "company": "Groww: Demat, Invest & Trade, Gold, Silver, Loans",
+  "developer_email": "support@groww.in",
+  "developer_website": "https://groww.in",
+  "play_store_url": "https://play.google.com/store/apps/details?id=com.nextbillion.groww",
+  "app_store_url": null,
+  "icon": "https://play-lh.googleusercontent.com/LHjOai6kf1IsstKNWO9jbMxD-ix_FVYaJSLodKCqYQdoFVzQBuV9z5txxzcTagQcyX8",
+  "header_image": "https://play-lh.googleusercontent.com/pu15UU5z_x3OeHRHSXM-M_j_OApFM-hsCxdaiAe74TilykP9SKyxgcAbk4CjvN7KNQ",
+  "screenshots": [
+    "https://play-lh.googleusercontent.com/-BnA_qSRSS2P4uOi73jPp2IzJARztU1RAJ42x07BrC3B7T09QOfJ_2Ktc5U5eb3iJxT3",
+    "https://play-lh.googleusercontent.com/6CdLqIruW-tRym-tdOC9xE13aWBlMdyGHieawVaYtfJ-eyRyTmdS_TDKrMpBGBrIFOn5",
+    "https://play-lh.googleusercontent.com/c0GyyzCw9YieobaZvHTbJB4Gx2PvDtezKG4Wmo_NLPtC2kYHv2S2sxJLLdD4uXKuPQ",
+    "https://play-lh.googleusercontent.com/16YS3H48r5Lq57jZ-Zfr3NRCS4TY8X784RcCoRSDFRsyN3sQoB2bfOO5YIERf1ILCrw",
+    "https://play-lh.googleusercontent.com/NQnJkwjIKK3FvaJx-Ad-iGPkzSxUacWvjMYJc2PkpYlBKB_ruFYREczTVXWnOfw8OsZ5AxFqo1oT8hd5xINonQ"
+  ],
+  "genre": "Finance",
+  "rating": 4.8,
+  "total_ratings": 2203580,
+  "total_reviews": 408115,
+  "installs": "100,000,000+",
+  "real_installs": 131335204,
+  "file_size_mb": null,
+  "price": "Free",
+  "content_rating": "Rated for 3+",
+  "version": "Varies with device",
+  "released": "Sep 22, 2016",
+  "last_updated": null,
+  "rating_breakdown": {
+    "5_star": 1944010,
+    "4_star": 171603,
+    "3_star": 34490,
+    "2_star": 14425,
+    "1_star": 39048
+  },
+  "description_preview": "<b><font color=\"#00D09C\">Groww</font></b> is India's No.1 Stock Broker 🏆, trusted by 4 Crore+ Indians. Open a free demat account and start investing & trading.\r\n\r\n<b>🚀Groww is your one app to invest & trade in:</b>\r\n👉<b>Stocks</b>\r\n👉<b>Mutual Funds</b>\r\n👉<b>Futures and Options Trading (F&O)</b>\r\n👉<b>Gold and Silver</b>\r\n👉<b>Margin Trading Facility (MTF)</b>\r\n👉<b>Commodity Derivatives: Gold, Silver, Crude Oil, Natural Gas and more</b>\r\n👉<b>Exchange Traded Funds (ETFs)</b>\r\n👉<b>IPO</b>\r\n👉<b>Bonds<",
+  "recent_changes": null,
+  "reviews_scraped": 100,
+  "negative_reviews_count": 40,
+  "negative_reviews": [
+    {
+      "rating": 1,
+      "author": "Gaurav Domadia",
+      "date": "2021-12-30",
+      "version": "14.74",
+      "review": "There is a lot of lag and the refresh is not as fast as other apps. In the dashboard, the app needs to show the up and down figurewise also, not just percentage wise. Like how many rupees has the price of the stock moved up or down. Also, the money withdrawal takes a very long time. Why? In the two other apps that i use, money withdrawal is a lot quicker. There is no long waiting period.",
+      "helpful_votes": 4385
+    },
+    {
+      "rating": 1,
+      "author": "Manika Chhabra",
+      "date": "2021-03-04",
+      "version": "13.13",
+      "review": "The app works too slowly, sometimes the search results just don't load. The help and support section has an option of ' raise a ticket' ,which doesn't lead to anywhere. That button is unresponsive. If you call the customer care number, there is never ending message of ' dear customer, all our service executives are currently busy assisting other customers.' I waited for about 30 minutes on the call, only to find np one answering my call. It is impossible to reach out to support team.",
+      "helpful_votes": 1472
+    },
+    {
+      "rating": 1,
+      "author": "Yasar Satvilkar",
+      "date": "2026-03-28",
+      "version": "18.6.1",
+      "review": "On the listing day, the stock was not visible on the Groww app for around 10 minutes after it went live on the exchange. During the same time, it was available for trading on other brokerage platforms. This delay prevented me from entering at my intended price. For active traders, even a few minutes matter. I hope necessary improvements are made to avoid such delays in future listings.",
+      "helpful_votes": 833
+    },
+    {
+      "rating": 1,
+      "author": "Bhajan Shil",
+      "date": "2021-01-14",
+      "version": "12.103",
+      "review": "I must say that the platform is not bad. but there is a problem. \"Account closing\" process is very bad. For closing an account you have to courier the form to their office. My question is if the KYC can be done digitally, why Account closure is not possible digitally ? The app should give \"Account Closing\" option directly on the app. It seems a normal problem on first look, but you will feel the problem when you actually want to close your account. This is the reason I can't recommend this app.",
+      "helpful_votes": 744
+    },
+    {
+      "rating": 2,
+      "author": "Nitish Goyal",
+      "date": "2025-11-29",
+      "version": "17.96.6",
+      "review": "The app is good, but the call center experience isn’t. I prefer your AI Voice Assistant because it solves my problem in just 30–50 seconds. In a human call, I first have to enter my date of birth, then select options based on my issue, and only after that do I get connected to a representative. The whole process takes around 7–8 minutes. The speed should be faster. In the end, my problem was solved. Thank you.",
+      "helpful_votes": 349
+    },
+    {
+      "rating": 2,
+      "author": "rakhshanda mujib",
+      "date": "2026-03-12",
+      "version": "18.4.3",
+      "review": "The app was working just fine when they disabled the feature that would let you export the external funds as well. By when can we expect the feature enablement? The dashboard has old data for the portfolio that really doesn't help to track my investments.",
+      "helpful_votes": 117
+    },
+    {
+      "rating": 1,
+      "author": "Ali Abbas",
+      "date": "2023-03-08",
+      "version": "15.91",
+      "review": "I wanted to sell my F&O at some profit, but the system started showing errors. Don't buy anything here they are stealing your money. (The is not resolved, I placed an order of sale at 48, which I was updating at market price. when the price goes to 92, your app made a sale of 48. I this the way you resolve it. Do you know the difference of 92 and 48.",
+      "helpful_votes": 100
+    },
+    {
+      "rating": 1,
+      "author": "Atharva Boralkar",
+      "date": "2022-02-26",
+      "version": "14.84",
+      "review": "Honest review : worst payment method provided by any stock broker. As a customer you have to wait for 4 days just to get approved to withdraw money from your account. And just to be clear that payment method fails for 8/10 times. One other thing, once you sell your stocks, then your amount don't get credited in your wallet. 20% amount is credited 2 days later. This shows how strong the payment structure is.",
+      "helpful_votes": 66
+    },
+    {
+      "rating": 2,
+      "author": "Ashish Sahu",
+      "date": "2026-03-17",
+      "version": "18.5.0",
+      "review": "All-time low to high range should be mentioned along with the day and 52-week price ranges. Also, the category of the company, such as large-cap, mid-cap, or small-cap, should be clearly specified along with the stock name for better clarity.",
+      "helpful_votes": 59
+    },
+    {
+      "rating": 2,
+      "author": "Praveen Raju",
+      "date": "2026-02-18",
+      "version": "18.3.1",
+      "review": "A lot of issues after updating are struck frequently, sometimes flash ups happen and trigger the target and end up with losses and sometimes don't execute the set targets after receding the target price by the time we see it will be in loss... this is leading to lots of loss to the users",
+      "helpful_votes": 54
+    },
+    {
+      "rating": 1,
+      "author": "anjali khurana",
+      "date": "2021-04-12",
+      "version": "14.08",
+      "review": "At the peak hours of trading the app just stop working, either orders are not completed or I'm not able to see my stocks (More than 500 that I have bought) on the dashboard. This has happened before as well and I ignored as one time glitch but do you guys don't understand the gravity of this platform and people can suffer major losses due to these repeated issues and eventually would change the platform if not fixed ASAP.",
+      "helpful_votes": 47
+    },
+    {
+      "rating": 2,
+      "author": "kumar nishant",
+      "date": "2026-01-28",
+      "version": "18.1.1",
+      "review": "I use 3 apps Groww, Zerodha Kite & Angel One. Groww is the most simple and easiest to use. For those who simply want to buy and sell after taking advice from others will enjoy Groww. In simple words Groww is for children above 18 years 😂. I am sorry to say but when I use this app I get very irritated because apart from buying and selling I have to refer to Zerodha and Angel One for other information. Some features are much better on Groww but still can't beat the other 2. Chart is horrible.",
+      "helpful_votes": 42
+    },
+    {
+      "rating": 2,
+      "author": "Parag Joshi",
+      "date": "2026-02-07",
+      "version": "18.1.1",
+      "review": "Pretty poor customer care response. I did \"Refresh External Funds\" and the update didn't match with the CAMS statement, so I raised a ticket and had conversation with customer care(after 10+ min. waiting period) , they marked ticket resolved without actually resolving the issue.",
+      "helpful_votes": 37
+    },
+    {
+      "rating": 1,
+      "author": "Pappu Sharma",
+      "date": "2021-06-20",
+      "version": "14.25",
+      "review": "This app won't let you to close intra trade because of this, it has made me pay extra 50 rs multiple times. Also I had booked few of the stocks and from many days I have been trying to sell it, but again it is not allowing. My money has been stuck in this aap. I had raised this issue multiple times with their customer support but as usual, nothing happened, all thanks to grow for my loss.",
+      "helpful_votes": 31
+    },
+    {
+      "rating": 1,
+      "author": "ajay singh",
+      "date": "2021-02-12",
+      "version": "13.08",
+      "review": "Very pathetic service. Too many issues with payments and SIPs. Its completely impossible to get any support for issues. It has been designed that way. My SIP amounts have been deducted and units have not been credited back either to bank account or Groww balance. There is no way i can reach out to any customer care if it exists. The phone number is a loop which is forwarded to another number so be ready for listening a infinite loop message. There is no Ticketing or complaint lodging facility.",
+      "helpful_votes": 27
+    },
+    {
+      "rating": 1,
+      "author": "Manish Maherchandani",
+      "date": "2026-03-07",
+      "version": "18.4.3",
+      "review": "I am trying since many days to import all internal and external Mutual Funds but app is just showing that they will come with new update shortly, but i don't know when new updates will come. Till the time we just have to wait. It is a very disappointing thing in today's digital era customer have to wait so long just to get own funds details. Team request to resolve at earliest",
+      "helpful_votes": 13
+    },
+    {
+      "rating": 2,
+      "author": "deon shanoj",
+      "date": "2026-01-29",
+      "version": "18.1.1",
+      "review": "The brokerage is Too high can't afford it ... Basically what I invest is all gone till the time the brokerage is deducted.. Plz look into this matter...",
+      "helpful_votes": 10
+    },
+    {
+      "rating": 1,
+      "author": "Abey Thomas",
+      "date": "2026-03-19",
+      "version": "18.5.0",
+      "review": "Earlier, this app worked fine, but over the last month, it has become very unreliable. Withdrawing money is not as easy as it used to be — most of the time, my withdrawal requests get auto-declined without any clear reason. There’s no response from customer care, and the issue remains unresolved. Very disappointing experience lately. Not recommended until they fix these problems.",
+      "helpful_votes": 8
+    },
+    {
+      "rating": 2,
+      "author": "Bhole Nath Tiwari",
+      "date": "2026-03-09",
+      "version": "18.4.3",
+      "review": "App is nice and user friendly but at some critical time to stop the loss or withdraw the profit it stops showing exit button due to this inconvenience it is feeling more than worst. why we will need the exit button after loosing all the money? Dear grow team I have faced this difficulty several time during intraday trading which is the worst ever experience. Please look into the matter and resolve the issue at the earliest to loose many users.",
+      "helpful_votes": 8
+    },
+    {
+      "rating": 2,
+      "author": "Kiranjot Singh Dhalla",
+      "date": "2026-03-05",
+      "version": "18.4.3",
+      "review": "Dear Groww... Please Remove the Stup¡d Effects in latest Update.... \"The Rising Building effect\" is so Non-Sense... it irritates everytime when we go to Check any Stocks Financials.... also wastes 1 - 2 seconds everytime....this is so irritating effect.... Keep the App Simple and Smart.....Not Stup¡d and please remove this non sense thing Asap 🙏🏻🙏🏻🙏🏻🙏🏻🙏🏻🙏🏻",
+      "helpful_votes": 5
+    },
+    {
+      "rating": 1,
+      "author": "hitesh chavan",
+      "date": "2026-03-24",
+      "version": "18.5.0",
+      "review": "The biggest issue is frequent technical glitches. During market hours, the app often lags, crashes, or simply doesn’t let you log in or place orders. There have been cases where users couldn’t execute trades or even see their balance during crucial moments, leading to losses",
+      "helpful_votes": 4
+    },
+    {
+      "rating": 2,
+      "author": "Akshay Kaushik",
+      "date": "2026-03-24",
+      "version": "18.5.0",
+      "review": "Team, I am not able to fetch the latest details on my mutual funds on groww, I really find it easier to Access the UI and not wanting to switch to a different app for my mutual fund transactions. It says external funds tracking is paused by mfcentral, but on other apps it's working, Please let me know if this can be fixed, expecting a response before I plan to switch to another application.",
+      "helpful_votes": 4
+    },
+    {
+      "rating": 1,
+      "author": "Deepak Khare",
+      "date": "2026-04-01",
+      "version": "18.5.0",
+      "review": "I have been using the grow app for the last 3 years now I conclude this is very worst app. I have placed an order and it was successfully placed. after 2 hrs my account balance showed negative balance. and my trade was showing 1100 profit when trade went negative it is auto square off. when connect to support he said we due to holiday your profite amount and your real money was blocked due to this account balance is showing negative. and it will reflect today after EOD run. seriously.",
+      "helpful_votes": 3
+    },
+    {
+      "rating": 1,
+      "author": "Prasad",
+      "date": "2026-03-19",
+      "version": "18.5.0",
+      "review": "After the latest update I experienced a glitch, during intraday - I entered the price in order so it will trigger automatically as usual but it placed the current price the same thing happened during the sell order. it happened with me 2 buy order, 2 sell order total 4 time. app doesn't register What price number I placed in the price box",
+      "helpful_votes": 3
+    },
+    {
+      "rating": 2,
+      "author": "Viren Singh",
+      "date": "2026-03-10",
+      "version": "18.4.3",
+      "review": "I have been trying to update my external mutual fund holdings for the last one week, but every time it shows that the “Updation of external holdings is paused.” Could you please confirm how long this will continue and when the service is expected to resume?",
+      "helpful_votes": 3
+    },
+    {
+      "rating": 1,
+      "author": "RAHUL KUMAR",
+      "date": "2026-03-26",
+      "version": "18.5.0",
+      "review": "I think the app developers are sleeping because A basic function like saving chart template option is not there do you expect each trader to set indicators etc. each time they open a chart ? no common sense at all. stop wasting money on advertisements and use that money to make your product better. thank you",
+      "helpful_votes": 2
+    },
+    {
+      "rating": 2,
+      "author": "Deep Raval",
+      "date": "2026-03-11",
+      "version": "18.4.3",
+      "review": "order get canceled with out reason in intraday if delivery was taken at 11 am in morning no reason anything and also autopay will be added of any amount without consent some time seems like scan. please watch out for autopay if not active might be 15k auto can be added automatically.",
+      "helpful_votes": 2
+    },
+    {
+      "rating": 1,
+      "author": "Dr. Abhay Mehta",
+      "date": "2026-04-01",
+      "version": "18.6.1",
+      "review": "I want to share my personal experience with Groww. I have been trading for a while and despite doing proper analysis before entering trades, I consistently end up in losses. It often feels like the moment I buy, the price starts going down. So far, I have faced losses of around ₹15 lakh, which has been extremely frustrating. From my perspective, the platform experience has not been favorable, and I strongly feel that something isn’t right at an individual level, this is a worse trading app.",
+      "helpful_votes": 1
+    },
+    {
+      "rating": 1,
+      "author": "John Leibert",
+      "date": "2026-04-02",
+      "version": "18.6.1",
+      "review": "very slow process and disappointing process, I buyed a share for 281rs and I sell it for 295rs, the blockage charges for that share was 5rs, so I have the profit for 285, but there process was so slow it took more than a week. and because of there delay the market got crashed and the value of that share was low so I received the payment of 250. so it's not ok for big investors and traders, because if you know that the market is gonna crash tomorrow you can't make it in time to sell it.",
+      "helpful_votes": 1
+    },
+    {
+      "rating": 1,
+      "author": "DEVENDRA KUMAR",
+      "date": "2026-04-06",
+      "version": "18.6.1",
+      "review": "Current update is not really good because the card of indexes like nifty 50 which were at the top, now they have been collapse which is not good for me. Every time if I wanted to see the nifty 50 like index I have to open it but before it was showing there just like other stocks.",
+      "helpful_votes": 1
+    },
+    {
+      "rating": 1,
+      "author": "Vinay Surya",
+      "date": "2026-03-30",
+      "version": "18.5.0",
+      "review": "I’m very disappointed with the Grow app. Recently, I received calls from random numbers offering investment services, which was honestly shocking. It made me question whether my contact details are being shared without my consent. User privacy is extremely important, and platforms like this are trusted with sensitive information. Experiences like this completely break that trust. I would strongly recommend being cautious while using this app. If this continues, it’s better to switch to other app",
+      "helpful_votes": 1
+    },
+    {
+      "rating": 2,
+      "author": "Zafar Alam",
+      "date": "2026-03-31",
+      "version": "18.6.1",
+      "review": "Best interface amongst all. easy to use, but customer support is very bad.",
+      "helpful_votes": 1
+    },
+    {
+      "rating": 2,
+      "author": "Tuhin dey",
+      "date": "2026-03-17",
+      "version": "18.4.3",
+      "review": "Well, everything was fine but from last month 21st external fund can't be updated! Don't know why this error reflecting!",
+      "helpful_votes": 1
+    },
+    {
+      "rating": 1,
+      "author": "SANJAY DAS",
+      "date": "2026-03-29",
+      "version": "18.5.0",
+      "review": "In the latest version,the trading chart of groww application is useless not only that even the trading view chart is not working auto fib retrce isn't available if you try to use it manually then you can't set it up properly even if you try to remove fib indicator you can't ( and in old trading view chart you can split the screen in maximum 6 sections and can see 6 different stocks at a time)now can see only 1 chart for 1 stock that also malfunctioning it is really very poor form of groww app!!?",
+      "helpful_votes": 0
+    },
+    {
+      "rating": 2,
+      "author": "Kuldeep Chahal",
+      "date": "2026-03-22",
+      "version": "18.5.0",
+      "review": "I tried using your app, and while its interface is excellent, there is a need to add a few features—for instance, it currently does not display the 'Change in Open Interest' option for futures.",
+      "helpful_votes": 0
+    },
+    {
+      "rating": 2,
+      "author": "Partha Dhar",
+      "date": "2026-04-08",
+      "version": "18.6.1",
+      "review": "An average app for learner bcoz the chart lags, don't hit SL , not good for scalping.",
+      "helpful_votes": 0
+    },
+    {
+      "rating": 2,
+      "author": "K. N. Singh",
+      "date": "2026-04-05",
+      "version": "18.6.1",
+      "review": "Scripts are so small, unable to read it . I tried but couldn't create my account. The whole process is not user friendly.",
+      "helpful_votes": 0
+    },
+    {
+      "rating": 2,
+      "author": "Sidharth Chouhan",
+      "date": "2026-03-21",
+      "version": "18.5.0",
+      "review": "external fund is not updating please solve issues, Massage showing,\"Your existing tracked funds will stay visible.We'll be back soon with an updated experience.\"",
+      "helpful_votes": 0
+    },
+    {
+      "rating": 2,
+      "author": "nitika aggarwal",
+      "date": "2026-04-07",
+      "version": "18.6.1",
+      "review": "The UX is degrading day by day. It used to have a good UX but now its gone would be switching to a different app soon.",
+      "helpful_votes": 0
+    },
+    {
+      "rating": 2,
+      "author": "Swapnil Sonawane",
+      "date": "2026-04-01",
+      "version": "18.6.1",
+      "review": "Unable to switch fund though 3 year locking period got over. Showing error while switching",
+      "helpful_votes": 0
+    }
+  ],
+  "all_reviews_by_rating": {
+    "1_star": [
+      {
+        "author": "Gaurav Domadia",
+        "date": "2021-12-30",
+        "review": "There is a lot of lag and the refresh is not as fast as other apps. In the dashboard, the app needs to show the up and down figurewise also, not just percentage wise. Like how many rupees has the price of the stock moved up or down. Also, the money withdrawal takes a very long time. Why? In the two other apps that i use, money withdrawal is a lot quicker. There is no long waiting period.",
+        "helpful_votes": 4385
+      },
+      {
+        "author": "Manika Chhabra",
+        "date": "2021-03-04",
+        "review": "The app works too slowly, sometimes the search results just don't load. The help and support section has an option of ' raise a ticket' ,which doesn't lead to anywhere. That button is unresponsive. If you call the customer care number, there is never ending message of ' dear customer, all our service executives are currently busy assisting other customers.' I waited for about 30 minutes on the call, only to find np one answering my call. It is impossible to reach out to support team.",
+        "helpful_votes": 1472
+      },
+      {
+        "author": "Atharva Boralkar",
+        "date": "2022-02-26",
+        "review": "Honest review : worst payment method provided by any stock broker. As a customer you have to wait for 4 days just to get approved to withdraw money from your account. And just to be clear that payment method fails for 8/10 times. One other thing, once you sell your stocks, then your amount don't get credited in your wallet. 20% amount is credited 2 days later. This shows how strong the payment structure is.",
+        "helpful_votes": 66
+      },
+      {
+        "author": "Ali Abbas",
+        "date": "2023-03-08",
+        "review": "I wanted to sell my F&O at some profit, but the system started showing errors. Don't buy anything here they are stealing your money. (The is not resolved, I placed an order of sale at 48, which I was updating at market price. when the price goes to 92, your app made a sale of 48. I this the way you resolve it. Do you know the difference of 92 and 48.",
+        "helpful_votes": 100
+      },
+      {
+        "author": "anjali khurana",
+        "date": "2021-04-12",
+        "review": "At the peak hours of trading the app just stop working, either orders are not completed or I'm not able to see my stocks (More than 500 that I have bought) on the dashboard. This has happened before as well and I ignored as one time glitch but do you guys don't understand the gravity of this platform and people can suffer major losses due to these repeated issues and eventually would change the platform if not fixed ASAP.",
+        "helpful_votes": 47
+      },
+      {
+        "author": "Bhajan Shil",
+        "date": "2021-01-14",
+        "review": "I must say that the platform is not bad. but there is a problem. \"Account closing\" process is very bad. For closing an account you have to courier the form to their office. My question is if the KYC can be done digitally, why Account closure is not possible digitally ? The app should give \"Account Closing\" option directly on the app. It seems a normal problem on first look, but you will feel the problem when you actually want to close your account. This is the reason I can't recommend this app.",
+        "helpful_votes": 744
+      },
+      {
+        "author": "Pappu Sharma",
+        "date": "2021-06-20",
+        "review": "This app won't let you to close intra trade because of this, it has made me pay extra 50 rs multiple times. Also I had booked few of the stocks and from many days I have been trying to sell it, but again it is not allowing. My money has been stuck in this aap. I had raised this issue multiple times with their customer support but as usual, nothing happened, all thanks to grow for my loss.",
+        "helpful_votes": 31
+      },
+      {
+        "author": "ajay singh",
+        "date": "2021-02-12",
+        "review": "Very pathetic service. Too many issues with payments and SIPs. Its completely impossible to get any support for issues. It has been designed that way. My SIP amounts have been deducted and units have not been credited back either to bank account or Groww balance. There is no way i can reach out to any customer care if it exists. The phone number is a loop which is forwarded to another number so be ready for listening a infinite loop message. There is no Ticketing or complaint lodging facility.",
+        "helpful_votes": 27
+      },
+      {
+        "author": "Abey Thomas",
+        "date": "2026-03-19",
+        "review": "Earlier, this app worked fine, but over the last month, it has become very unreliable. Withdrawing money is not as easy as it used to be — most of the time, my withdrawal requests get auto-declined without any clear reason. There’s no response from customer care, and the issue remains unresolved. Very disappointing experience lately. Not recommended until they fix these problems.",
+        "helpful_votes": 8
+      },
+      {
+        "author": "Dr. Abhay Mehta",
+        "date": "2026-04-01",
+        "review": "I want to share my personal experience with Groww. I have been trading for a while and despite doing proper analysis before entering trades, I consistently end up in losses. It often feels like the moment I buy, the price starts going down. So far, I have faced losses of around ₹15 lakh, which has been extremely frustrating. From my perspective, the platform experience has not been favorable, and I strongly feel that something isn’t right at an individual level, this is a worse trading app.",
+        "helpful_votes": 1
+      },
+      {
+        "author": "SANJAY DAS",
+        "date": "2026-03-29",
+        "review": "In the latest version,the trading chart of groww application is useless not only that even the trading view chart is not working auto fib retrce isn't available if you try to use it manually then you can't set it up properly even if you try to remove fib indicator you can't ( and in old trading view chart you can split the screen in maximum 6 sections and can see 6 different stocks at a time)now can see only 1 chart for 1 stock that also malfunctioning it is really very poor form of groww app!!?",
+        "helpful_votes": 0
+      },
+      {
+        "author": "Deepak Khare",
+        "date": "2026-04-01",
+        "review": "I have been using the grow app for the last 3 years now I conclude this is very worst app. I have placed an order and it was successfully placed. after 2 hrs my account balance showed negative balance. and my trade was showing 1100 profit when trade went negative it is auto square off. when connect to support he said we due to holiday your profite amount and your real money was blocked due to this account balance is showing negative. and it will reflect today after EOD run. seriously.",
+        "helpful_votes": 3
+      },
+      {
+        "author": "John Leibert",
+        "date": "2026-04-02",
+        "review": "very slow process and disappointing process, I buyed a share for 281rs and I sell it for 295rs, the blockage charges for that share was 5rs, so I have the profit for 285, but there process was so slow it took more than a week. and because of there delay the market got crashed and the value of that share was low so I received the payment of 250. so it's not ok for big investors and traders, because if you know that the market is gonna crash tomorrow you can't make it in time to sell it.",
+        "helpful_votes": 1
+      },
+      {
+        "author": "DEVENDRA KUMAR",
+        "date": "2026-04-06",
+        "review": "Current update is not really good because the card of indexes like nifty 50 which were at the top, now they have been collapse which is not good for me. Every time if I wanted to see the nifty 50 like index I have to open it but before it was showing there just like other stocks.",
+        "helpful_votes": 1
+      },
+      {
+        "author": "hitesh chavan",
+        "date": "2026-03-24",
+        "review": "The biggest issue is frequent technical glitches. During market hours, the app often lags, crashes, or simply doesn’t let you log in or place orders. There have been cases where users couldn’t execute trades or even see their balance during crucial moments, leading to losses",
+        "helpful_votes": 4
+      },
+      {
+        "author": "RAHUL KUMAR",
+        "date": "2026-03-26",
+        "review": "I think the app developers are sleeping because A basic function like saving chart template option is not there do you expect each trader to set indicators etc. each time they open a chart ? no common sense at all. stop wasting money on advertisements and use that money to make your product better. thank you",
+        "helpful_votes": 2
+      },
+      {
+        "author": "Yasar Satvilkar",
+        "date": "2026-03-28",
+        "review": "On the listing day, the stock was not visible on the Groww app for around 10 minutes after it went live on the exchange. During the same time, it was available for trading on other brokerage platforms. This delay prevented me from entering at my intended price. For active traders, even a few minutes matter. I hope necessary improvements are made to avoid such delays in future listings.",
+        "helpful_votes": 833
+      },
+      {
+        "author": "Vinay Surya",
+        "date": "2026-03-30",
+        "review": "I’m very disappointed with the Grow app. Recently, I received calls from random numbers offering investment services, which was honestly shocking. It made me question whether my contact details are being shared without my consent. User privacy is extremely important, and platforms like this are trusted with sensitive information. Experiences like this completely break that trust. I would strongly recommend being cautious while using this app. If this continues, it’s better to switch to other app",
+        "helpful_votes": 1
+      },
+      {
+        "author": "Prasad",
+        "date": "2026-03-19",
+        "review": "After the latest update I experienced a glitch, during intraday - I entered the price in order so it will trigger automatically as usual but it placed the current price the same thing happened during the sell order. it happened with me 2 buy order, 2 sell order total 4 time. app doesn't register What price number I placed in the price box",
+        "helpful_votes": 3
+      },
+      {
+        "author": "Manish Maherchandani",
+        "date": "2026-03-07",
+        "review": "I am trying since many days to import all internal and external Mutual Funds but app is just showing that they will come with new update shortly, but i don't know when new updates will come. Till the time we just have to wait. It is a very disappointing thing in today's digital era customer have to wait so long just to get own funds details. Team request to resolve at earliest",
+        "helpful_votes": 13
+      }
+    ],
+    "2_star": [
+      {
+        "author": "Akshay Kaushik",
+        "date": "2026-03-24",
+        "review": "Team, I am not able to fetch the latest details on my mutual funds on groww, I really find it easier to Access the UI and not wanting to switch to a different app for my mutual fund transactions. It says external funds tracking is paused by mfcentral, but on other apps it's working, Please let me know if this can be fixed, expecting a response before I plan to switch to another application.",
+        "helpful_votes": 4
+      },
+      {
+        "author": "Kuldeep Chahal",
+        "date": "2026-03-22",
+        "review": "I tried using your app, and while its interface is excellent, there is a need to add a few features—for instance, it currently does not display the 'Change in Open Interest' option for futures.",
+        "helpful_votes": 0
+      },
+      {
+        "author": "Ashish Sahu",
+        "date": "2026-03-17",
+        "review": "All-time low to high range should be mentioned along with the day and 52-week price ranges. Also, the category of the company, such as large-cap, mid-cap, or small-cap, should be clearly specified along with the stock name for better clarity.",
+        "helpful_votes": 59
+      },
+      {
+        "author": "Praveen Raju",
+        "date": "2026-02-18",
+        "review": "A lot of issues after updating are struck frequently, sometimes flash ups happen and trigger the target and end up with losses and sometimes don't execute the set targets after receding the target price by the time we see it will be in loss... this is leading to lots of loss to the users",
+        "helpful_votes": 54
+      },
+      {
+        "author": "rakhshanda mujib",
+        "date": "2026-03-12",
+        "review": "The app was working just fine when they disabled the feature that would let you export the external funds as well. By when can we expect the feature enablement? The dashboard has old data for the portfolio that really doesn't help to track my investments.",
+        "helpful_votes": 117
+      },
+      {
+        "author": "Viren Singh",
+        "date": "2026-03-10",
+        "review": "I have been trying to update my external mutual fund holdings for the last one week, but every time it shows that the “Updation of external holdings is paused.” Could you please confirm how long this will continue and when the service is expected to resume?",
+        "helpful_votes": 3
+      },
+      {
+        "author": "Deep Raval",
+        "date": "2026-03-11",
+        "review": "order get canceled with out reason in intraday if delivery was taken at 11 am in morning no reason anything and also autopay will be added of any amount without consent some time seems like scan. please watch out for autopay if not active might be 15k auto can be added automatically.",
+        "helpful_votes": 2
+      },
+      {
+        "author": "Bhole Nath Tiwari",
+        "date": "2026-03-09",
+        "review": "App is nice and user friendly but at some critical time to stop the loss or withdraw the profit it stops showing exit button due to this inconvenience it is feeling more than worst. why we will need the exit button after loosing all the money? Dear grow team I have faced this difficulty several time during intraday trading which is the worst ever experience. Please look into the matter and resolve the issue at the earliest to loose many users.",
+        "helpful_votes": 8
+      },
+      {
+        "author": "kumar nishant",
+        "date": "2026-01-28",
+        "review": "I use 3 apps Groww, Zerodha Kite & Angel One. Groww is the most simple and easiest to use. For those who simply want to buy and sell after taking advice from others will enjoy Groww. In simple words Groww is for children above 18 years 😂. I am sorry to say but when I use this app I get very irritated because apart from buying and selling I have to refer to Zerodha and Angel One for other information. Some features are much better on Groww but still can't beat the other 2. Chart is horrible.",
+        "helpful_votes": 42
+      },
+      {
+        "author": "Parag Joshi",
+        "date": "2026-02-07",
+        "review": "Pretty poor customer care response. I did \"Refresh External Funds\" and the update didn't match with the CAMS statement, so I raised a ticket and had conversation with customer care(after 10+ min. waiting period) , they marked ticket resolved without actually resolving the issue.",
+        "helpful_votes": 37
+      },
+      {
+        "author": "Kiranjot Singh Dhalla",
+        "date": "2026-03-05",
+        "review": "Dear Groww... Please Remove the Stup¡d Effects in latest Update.... \"The Rising Building effect\" is so Non-Sense... it irritates everytime when we go to Check any Stocks Financials.... also wastes 1 - 2 seconds everytime....this is so irritating effect.... Keep the App Simple and Smart.....Not Stup¡d and please remove this non sense thing Asap 🙏🏻🙏🏻🙏🏻🙏🏻🙏🏻🙏🏻",
+        "helpful_votes": 5
+      },
+      {
+        "author": "Partha Dhar",
+        "date": "2026-04-08",
+        "review": "An average app for learner bcoz the chart lags, don't hit SL , not good for scalping.",
+        "helpful_votes": 0
+      },
+      {
+        "author": "K. N. Singh",
+        "date": "2026-04-05",
+        "review": "Scripts are so small, unable to read it . I tried but couldn't create my account. The whole process is not user friendly.",
+        "helpful_votes": 0
+      },
+      {
+        "author": "Sidharth Chouhan",
+        "date": "2026-03-21",
+        "review": "external fund is not updating please solve issues, Massage showing,\"Your existing tracked funds will stay visible.We'll be back soon with an updated experience.\"",
+        "helpful_votes": 0
+      },
+      {
+        "author": "nitika aggarwal",
+        "date": "2026-04-07",
+        "review": "The UX is degrading day by day. It used to have a good UX but now its gone would be switching to a different app soon.",
+        "helpful_votes": 0
+      },
+      {
+        "author": "Swapnil Sonawane",
+        "date": "2026-04-01",
+        "review": "Unable to switch fund though 3 year locking period got over. Showing error while switching",
+        "helpful_votes": 0
+      },
+      {
+        "author": "Zafar Alam",
+        "date": "2026-03-31",
+        "review": "Best interface amongst all. easy to use, but customer support is very bad.",
+        "helpful_votes": 1
+      },
+      {
+        "author": "deon shanoj",
+        "date": "2026-01-29",
+        "review": "The brokerage is Too high can't afford it ... Basically what I invest is all gone till the time the brokerage is deducted.. Plz look into this matter...",
+        "helpful_votes": 10
+      },
+      {
+        "author": "Nitish Goyal",
+        "date": "2025-11-29",
+        "review": "The app is good, but the call center experience isn’t. I prefer your AI Voice Assistant because it solves my problem in just 30–50 seconds. In a human call, I first have to enter my date of birth, then select options based on my issue, and only after that do I get connected to a representative. The whole process takes around 7–8 minutes. The speed should be faster. In the end, my problem was solved. Thank you.",
+        "helpful_votes": 349
+      },
+      {
+        "author": "Tuhin dey",
+        "date": "2026-03-17",
+        "review": "Well, everything was fine but from last month 21st external fund can't be updated! Don't know why this error reflecting!",
+        "helpful_votes": 1
+      }
+    ],
+    "3_star": [
+      {
+        "author": "Khanjan Das",
+        "date": "2022-02-07",
+        "review": "First thing, i would like to say is that it has many technical issues. I have been using this app for the last 3 months and was not facing much technical issues. However after the recent update, it's not the same anymore. My portfolios sometimes gets dissappear, and then shows again after a while leading to tense situations and difficulties in trading. Please do fix this error.",
+        "helpful_votes": 15094
+      },
+      {
+        "author": "Praveen Ramancha",
+        "date": "2026-03-14",
+        "review": "Nice app, but for Stop Loss (SL) or Take Profit (TP) we have to go back and manually enter the price. For scalping, futures, and options trading, it would be better if there is a direct option where we can simply drag and place the SL or TP on the chart wherever we want. That would be the best feature. Otherwise, the market may reverse quickly within seconds and many people may lose their money. I think this improvement would help your app grow. Please consider improving this point. ☝️",
+        "helpful_votes": 6
+      },
+      {
+        "author": "Ami Akash",
+        "date": "2026-02-25",
+        "review": "Moderate to good app. good for long term holding. bad for intraday trading / margin trading. they are still the slower than the big competitors (like big banks). I would have given 5 stars if there was an option to increase the font size in the app. it should be customisable. the fonts are for ants, not for human eyes.",
+        "helpful_votes": 111
+      },
+      {
+        "author": "SAGAR MAZUMDAR",
+        "date": "2026-03-23",
+        "review": "dear groww, what's the benefit of setting safe exit when you don't do it accordingly. when it's come to set safe loss, it's trigger after the set amount, and when it's come to set profit, the amount triggered at very low for exp I've set safe exit at 1200 to book my profit but it's triggered at 1100. what's the use of it tell me",
+        "helpful_votes": 2
+      },
+      {
+        "author": "Jayanth S",
+        "date": "2026-04-02",
+        "review": "Great interface, clean UI, provides more useful information. Drawbacks being 1. No weekly SIPs for Mutual funds. 2. No switch between funds in your portfolio with different fund houses. Please try to include these, would really help a lot.",
+        "helpful_votes": 1
+      },
+      {
+        "author": "Shyam Gajaria",
+        "date": "2026-03-28",
+        "review": "Otherwise it's good but lot of improvement needed. 1. Multiple accounts log in or switch accounts 2. Simple Insights to cumulate all data and give decision making power to users.",
+        "helpful_votes": 3
+      },
+      {
+        "author": "Upama Barman",
+        "date": "2026-03-23",
+        "review": "I had complained regarding delink of mail id with a name however same is not completed .. we have tried to reach out your customer service no such proper assistant provided. Now life time I am unable to use grow, is this is groww is all about. Mail send, currently I am able to login.",
+        "helpful_votes": 3
+      },
+      {
+        "author": "gunjan palariya",
+        "date": "2026-03-25",
+        "review": "the app has so many glitches specially during volatile market hours. the app closes and doesn't responds, and it affects trading.",
+        "helpful_votes": 1
+      },
+      {
+        "author": "Deepika Pandit",
+        "date": "2026-02-24",
+        "review": "Hi Myself Deepika Pandit I am facing issue while creating account. There is this last step that says proceed to eSign no matter how many times I clicked on it tge only response that I hot was try again later . I am stucked in that page for past 2 days . I also deleted the app and re-download it but no progress. I don't know what to do now . I hope that you go through this issue of mine and help me to resolve it . Thank you",
+        "helpful_votes": 36
+      },
+      {
+        "author": "Jasmin Moras",
+        "date": "2026-02-01",
+        "review": "App is good, however some improvements. Nominee name entry has letter limit and hence cannot add full name as per a valid document. Also the last signing document is not available for zooming to counter check all details, conditions in microscopic letters prior the final agreement and signing.",
+        "helpful_votes": 84
+      },
+      {
+        "author": "Swapnil Patrick Singh",
+        "date": "2026-02-06",
+        "review": "I recently deactivated my demat account due to the application not accepting nominee changes. This was a couple of weeks ago. Now, when I want to start afresh, the application is still pending and there is no mechanism in place to create a new account. Could you please look into this? I tried getting in touch with your customer service but to no avail.",
+        "helpful_votes": 46
+      },
+      {
+        "author": "Pritam Shee",
+        "date": "2026-03-13",
+        "review": "The platform works well, but there is one issue that needs improvement. When placing an order, the TP (Take Profit) and SL (Stop Loss) are not set automatically, and it becomes difficult to add them manually from the position panel. It would be very helpful if you could introduce a drag-and-drop feature for TP and SL directly on the chart. This feature would make trading much faster and easier, not only for me but for many other users as well. Please consider adding this in a future update.",
+        "helpful_votes": 1
+      },
+      {
+        "author": "Deepak Velandy",
+        "date": "2026-03-16",
+        "review": "when we get notification about stocks and indexes, when we click that to open app asks for biometric authentication for open, this happens everytime even while logged in the application or monitoring the market. fix this issue.",
+        "helpful_votes": 2
+      },
+      {
+        "author": "Tanishka K",
+        "date": "2026-03-16",
+        "review": "hey im facing issue in past i make id on grow and from my email but later i deleted my that email now I registered again with my pan but it's not login it required new pan kindly look forward in this im facing this issue can't use this app phone no. is same but not have access to that email id cause delete that.",
+        "helpful_votes": 2
+      },
+      {
+        "author": "Lakkireddy Tarun reddy",
+        "date": "2026-03-03",
+        "review": "I invested some amount in liquid fund. After somedays I sold my mutual fund units even amount also credited in my account. After sold my units till it is showing that fund even after one week. I hope this small glitches will resolve in soon. Remaining overall app experience is good",
+        "helpful_votes": 9
+      },
+      {
+        "author": "Ayush Bajpai",
+        "date": "2026-02-20",
+        "review": "Hello groww team listen carefully, I have to open the app more 100 times in a day, and your app feature \"first enter pin/pattern then open\" is my wasting my lot of time. Please make it optional. Edit : I'll switch with upstockx - it is my final decision, my community is also using upstock",
+        "helpful_votes": 12
+      },
+      {
+        "author": "Rolex king",
+        "date": "2026-03-03",
+        "review": "this is useful for student to grow and but we have some technic to buy a stock at a right time. for me I think it's useful to start this trade stock market ❤️",
+        "helpful_votes": 7
+      },
+      {
+        "author": "SUMEET PARAKH",
+        "date": "2026-03-24",
+        "review": "The app is crashing today sir . Despite logging through mobile verification, it is automatically getting logged out even after catching otp",
+        "helpful_votes": 2
+      },
+      {
+        "author": "Neel Shah",
+        "date": "2026-04-05",
+        "review": "everything is fine can you make different app for upi if possible like full payment app upi, card , fd , and rewards and credit card facilities",
+        "helpful_votes": 0
+      },
+      {
+        "author": "Mehul Patel",
+        "date": "2026-03-16",
+        "review": "in the recent time order is not getting quick refresh and did not show in the position quickly other wise app ia good.",
+        "helpful_votes": 2
+      }
+    ],
+    "4_star": [
+      {
+        "author": "Kula Nanda Sharma",
+        "date": "2026-03-19",
+        "review": "The application is easy to use, but I am facing an issue with SL execution in F&O. For example, today my stop-loss was set to trigger at ₹380, but it got executed at ₹376.60 instead. I have no idea about this. The app needs to work on better fill prices during volatility.",
+        "helpful_votes": 6
+      },
+      {
+        "author": "Madhu A",
+        "date": "2026-02-27",
+        "review": "Your app is great! I’d like to suggest a small improvement: while reviewing GTT orders, the current market price is only visible after selecting the script and opening the popup. It would be very helpful if the market price could be displayed directly in the GTT order window, making it easier to review and quickly edit GTT orders.",
+        "helpful_votes": 86
+      },
+      {
+        "author": "Nagarajan Krishnamoorthy",
+        "date": "2026-02-11",
+        "review": "Very Good app. most features we need is all inbuilt. Only thing I found is little lag. most notifications are delayed. From opening bell to my watchlist stocks performance notifications. Whenever it touches all time high or low notifications are coming only after 15 minutes. The new update with technical section is too good. The alarm: if we set a alert for a stock price @175 it notifies only if it touches ₹175. but It skips if price jumped from 173-176",
+        "helpful_votes": 927
+      },
+      {
+        "author": "Study Lit",
+        "date": "2026-03-20",
+        "review": "Addition of trailing SL in F&O trading and scalping on Nifty 50 Chart itself will be more user friendly.Also,try to include drag and select a limit price on chart to buy or sell would be greatly beneficial. I would give it a 5 star rating if it all these things are included in the chart itself instead sepate premium chart.",
+        "helpful_votes": 4
+      },
+      {
+        "author": "Nayan Kalra",
+        "date": "2026-03-20",
+        "review": "app is fast and reliable just one problem it is very difficult to change/edit stoploss or targets. and do not show price and percentage of the selected area, it only shows information of the particular candle selected and brokerage is too high, but okay when seeing it's free to open and maintain account",
+        "helpful_votes": 5
+      },
+      {
+        "author": "soum gupta",
+        "date": "2026-03-11",
+        "review": "Super app with zero AMC charges. But I have only one suggestion, please provide an option to buy stocks on the basis of amount. It only shows quantity, converting into amount takes time and makes some user confused on the conversion. so please work on this to provide 'Amount option while buying stocks'",
+        "helpful_votes": 10
+      },
+      {
+        "author": "Kishore Baishya",
+        "date": "2026-02-09",
+        "review": "This is the app i use the most on my phone. I like the 1 tap scalper and find it very handy to quickly switch between index and options charts. Some indicators are not available in new charts. Only drawback im having right jow is that im still using old charts because i can't find ADX and ATR indicators in new charts and in fno charts. Also wish charges were little less. They have the largest market share in the retail brokerages.",
+        "helpful_votes": 367
+      },
+      {
+        "author": "G S",
+        "date": "2026-03-28",
+        "review": "Suggestion: About adding Widget Dear Developer, if you add this feature widget in the app the user may be very helpful and make interest in Groww App. Scrolling Stock Price Bar Widget 1) In this widget user can add his favourite Stocks/ETF/Fund etc to show its live price 2) The widget may be fully customizable like font, Bar position, colour, Scrolling speed, Size of bar, Background color or transparent. 3)The widget may shown on anywhere in screen or lock screen or both it may be optional.",
+        "helpful_votes": 7
+      },
+      {
+        "author": "Lovers day YouTube channel",
+        "date": "2026-03-12",
+        "review": "Hello Groww Team, Your app is very nice and easy to use for Demat accounts, trading, and mutual fund investments. However, compared to some other trading apps like some trading charts, settings, and trading map features are better there. I have one suggestion for improvement in the Groww app. In the mutual fund section, it would be very helpful if you show how many people are investing in each fund and how much money investors have invested in that fund. This will help users popular funds.😢😂❤",
+        "helpful_votes": 11
+      },
+      {
+        "author": "Shibayan Mukherjee",
+        "date": "2026-03-28",
+        "review": "One of the few investment apps that actually feels simple instead of confusing. Clean design, fast transactions, and everything is easy to find. Good for both beginners and regular investors. Makes tracking stocks and mutual funds much more convenient.",
+        "helpful_votes": 3
+      },
+      {
+        "author": "Prof. Sandeep Rajbhar",
+        "date": "2026-03-30",
+        "review": "Good but Customer care cannot be contacted quickly and the profit in rupees per lot should be mentioned there on every order like Angle One App and Open Position are not working properly... Don't Trust on Technical Analysis for Stock. I may be wrong.",
+        "helpful_votes": 3
+      },
+      {
+        "author": "sunny chauhan",
+        "date": "2026-03-30",
+        "review": "V. Good app. But please On homepage, At Top showing Nifty 50, Sensex,bank Nifty, global sign in Horizontal Row is now very Thin & too much small from last update. please make that row slightly bigger, bolder or In tiles Foam as it was before the update it was. current is very small letters & over minimalistic.",
+        "helpful_votes": 2
+      },
+      {
+        "author": "Prateek Dobal",
+        "date": "2026-03-30",
+        "review": "Please fix the Tax Harvesting option. It keeps showing the login page of Groww. And even when I try to login in that page, it takes no action.",
+        "helpful_votes": 1
+      },
+      {
+        "author": "Harit Mohan Saxena",
+        "date": "2026-04-01",
+        "review": "stock portfolio analysis line chart is broken, my guess is it is not taking etf into account for selling price but considering it in buying price PS: It is still broken, it shows my investment in loss in analysis screen. something is wrong",
+        "helpful_votes": 3
+      },
+      {
+        "author": "Kanha Naik",
+        "date": "2026-04-02",
+        "review": "It's A Very Good App zero brokery fee's and u can invest in any stock every companys stock also listed her and it's very easy to use but my recommendation is u firstly learn what is stock market then come",
+        "helpful_votes": 1
+      },
+      {
+        "author": "Karunakar Mantri",
+        "date": "2026-04-07",
+        "review": "Your earlier nifty index indicator was really great for visual at top position, but after update the latest it's not like comfortable. Pls make it as it was or make it movable with bold.",
+        "helpful_votes": 1
+      },
+      {
+        "author": "Amit Burnwal",
+        "date": "2026-03-27",
+        "review": "Please revert the change, the indices section has become like a strip, earlier size was good where you can see the relevant details without opening.",
+        "helpful_votes": 4
+      },
+      {
+        "author": "Kiran SM",
+        "date": "2026-03-20",
+        "review": "app deserves 5 stars for its user friendly interface, because there's no bond market viewing and trading, and still we can buy bonds feels that something is lacking, please update this issue soon.",
+        "helpful_votes": 5
+      },
+      {
+        "author": "rishav Kumar",
+        "date": "2026-02-28",
+        "review": "recently changed view of gtt orders where you can't see the current market price of scrips is something I didn't like...you have to open every single gtt order placed to know what's the current price of that particular scrip is. please get back to earlier interface.",
+        "helpful_votes": 16
+      },
+      {
+        "author": "Varun Tyagi",
+        "date": "2026-02-04",
+        "review": "App is easy to use, has many investment options and provides detailed information. But it seriously needs the option to create custom portfolios for SIPs. There is just no way to manage SIPs for specific goals. One would expect it to be a regular feature for an investment app.",
+        "helpful_votes": 353
+      }
+    ],
+    "5_star": [
+      {
+        "author": "Sachin Kewat",
+        "date": "2026-03-08",
+        "review": "Good features. Please add short-term timeframes like 5m, 15m, 30m, 1hr, and 4hr, and long-term timeframes like 1 week and 1 month in technical analysis. Also add open interest (OI), pivot levels, and Fibonacci levels for both indices and options. In fundamentals, more depth is required - such as SWOT analysis, insights, forecasts, and ratings.",
+        "helpful_votes": 8
+      },
+      {
+        "author": "GOUTAM SAHOO",
+        "date": "2026-03-17",
+        "review": "superb app but sometimes(in fact many times) the order limit price doesn't reflect in order, I think we need to refresh multiple times and many times we need to close the app and again need to start to see the modify price, please improve this, In fact the game is all about ordering. Thank you.",
+        "helpful_votes": 8
+      },
+      {
+        "author": "Sivakumar Rajendran",
+        "date": "2026-02-21",
+        "review": "Very simple and easy to use. Has all the information required for trading smoothly. Yet I need some other options. 1. To use rectangle properly, add the middle line. 2. In top down analysis I use higher time frame to mark the key zones. To refine it I need smaller time frame where I find difficult in grow app, for It just provides past three months history only. Every thing else is fine.",
+        "helpful_votes": 16
+      },
+      {
+        "author": "AVINASH PANDYA",
+        "date": "2026-03-11",
+        "review": "superb app but sometimes(in fact many times) the order limit price doesn't reflect in order, I think we need to refresh multiple times and many times we need to close the app and again need to start to see the modify price, please improve this, In fact the game is all about ordering. Thank you",
+        "helpful_votes": 9
+      },
+      {
+        "author": "Karan Satyawali",
+        "date": "2026-04-08",
+        "review": "Groo App is simple, fast, and very easy to use. I like how it focuses only on useful features instead of adding unnecessary stuff. The interface is clean and beginner-friendly, and everything runs smoothly without lag. It gives a distraction-free and well-optimized experience, making it reliable for regular use. Overall, a great app that offers a smooth and hassle-free experience—definitely worth trying.",
+        "helpful_votes": 0
+      },
+      {
+        "author": "Rajesh Kumar",
+        "date": "2026-03-19",
+        "review": "Groww is one of the best investment apps for beginners and professionals. The interface is very simple and user-friendly, making investing easy and smooth. I really like the zero-commission mutual funds and fast performance. It offers everything from stocks to SIP in one place. Highly recommended app for anyone who wants to grow their money smartly!",
+        "helpful_votes": 6
+      },
+      {
+        "author": "Shreerang More",
+        "date": "2026-04-06",
+        "review": "Groww is the best app for trading, its easy, fast and efficient. Groww developers must not make any changes in the overall user interface, it is the best compared to all other apps. Regards",
+        "helpful_votes": 1
+      },
+      {
+        "author": "SANTOSH KUMAR PATRO",
+        "date": "2026-03-24",
+        "review": "Very good, Grow App operation is very good in every aspects like fund transfer, withdrawing fund to bank on time, all shares quantity report 100% correct. All issues( if any ) are resolved within time. All things are appreciated.",
+        "helpful_votes": 6
+      },
+      {
+        "author": "Lagan Sharma",
+        "date": "2026-03-22",
+        "review": "Back office reports are very useful for reviewing past trades. I often check them to understand my performance and learn from previous decisions. That feature adds real value",
+        "helpful_votes": 4
+      },
+      {
+        "author": "Sagar Katre",
+        "date": "2026-03-28",
+        "review": "The app is fabulous. one feature needs to be added for a combined portfolio which includes shares, mutual fund, epf, ppf, etc so we can see our wealth portfolio and take decisions on the results.",
+        "helpful_votes": 2
+      },
+      {
+        "author": "RAIGONDE NIKHIL",
+        "date": "2026-03-18",
+        "review": "I'm using this app since last 1 year and I found it very easy to use. With every update the app introduces simple and minimalistic new details to understand market better.",
+        "helpful_votes": 5
+      },
+      {
+        "author": "Awais Bhatkar",
+        "date": "2026-03-29",
+        "review": "Very Best Application, I am using from 2022 till now there is no complaints regarding this App. They solve your queries on Time. Money withdraw process is good and on time.",
+        "helpful_votes": 2
+      },
+      {
+        "author": "RUCHIN CHAUHAN",
+        "date": "2026-04-01",
+        "review": "Really loved the new pie chart views you have added for MF portfolio analysis. Now it also tells the gain/loss for short term or long term funds. Really liked this one.",
+        "helpful_votes": 1
+      },
+      {
+        "author": "Jitesh Kanpan",
+        "date": "2026-03-24",
+        "review": "I am not able to login , unfortunately there's some issues while using my email. pls resolve this. I have been your user since you are in the market.",
+        "helpful_votes": 3
+      },
+      {
+        "author": "Jaiदेव Chatla",
+        "date": "2026-03-24",
+        "review": "The overall App is really smooth and good with little to no glitches. i recently also came across a feature in 8nd money app where we can track epf ppf amd other type of funds. would be glad if groww can also work and replicate the same.",
+        "helpful_votes": 2
+      },
+      {
+        "author": "karthi keyan",
+        "date": "2026-02-12",
+        "review": "Good features. Please add short-term timeframes like 5m, 15m, 30m, 1hr, and 4hr, and long-term timeframes like 1 week and 1 month in technical analysis. Also add open interest (OI), pivot levels, and Fibonacci levels for both indices and options. In fundamentals, more depth is required — such as SWOT analysis, insights, forecasts, and ratings.",
+        "helpful_votes": 1037
+      },
+      {
+        "author": "Sujana johnbaskar",
+        "date": "2026-02-19",
+        "review": "Groww is very handy and very clear app to avoid confusing even for the beginners to the market. Charts and other datas about a stock easy to analyse. I really love using it. Instant money withdrawal makes you feel better than other apps . I started my journey of stock market investment with Groww it will be very helpful for people like us who are not having any prior experience with market.",
+        "helpful_votes": 157
+      },
+      {
+        "author": "Sunny Dahiya",
+        "date": "2026-03-22",
+        "review": "Perfect app for investments. private secure. Withdrawals are fast. Exactly what I needed. Been using it for months now",
+        "helpful_votes": 4
+      },
+      {
+        "author": "Mann Mistry",
+        "date": "2026-04-03",
+        "review": "transparent charges, user friendly interface. however, add VIX while option trading screen. and if currancy segment is added. it will be ever best platform.",
+        "helpful_votes": 2
+      },
+      {
+        "author": "Ankush AK",
+        "date": "2026-02-19",
+        "review": "Full of Information and easy to use and also includes new features as soon as possible. But there lack of 1 functionality that we can't modify or trail stoploss or target through chart like in trading view we have line of stoploss and target and we can trail them as required. If you guys add this feature then your app become unbeatable. Love you guys always. 👍👍",
+        "helpful_votes": 317
+      }
+    ]
+  },
+  "summary": "Groww is a comprehensive investment and trading app for Indians, offering a wide range of financial instruments including stocks, mutual funds, futures, options, gold, silver, and more. It provides a free demat account and 24/7 customer support.",
+  "key_features": [
+    "Free demat account",
+    "Invest in stocks, mutual funds, F&O, gold, silver, and more",
+    "Margin Trading Facility (MTF)",
+    "24/7 customer support",
+    "No AMC fees or hidden charges",
+    "Advanced trading tools and charts",
+    "Auto-invest with SIP",
+    "IPO applications"
+  ],
+  "target_audience": "Indian investors and traders looking for a versatile and user-friendly platform to manage their investments.",
+  "overall_sentiment": "Negative",
+  "top_complaints": [
+    "Slow performance and lag during trading",
+    "Issues with payment and withdrawal processes",
+    "Unresponsive customer support",
+    "Problems with the trading chart and technical analysis tools",
+    "Reliability issues during peak trading hours"
+  ],
+  "top_praises": [
+    "Free demat account",
+    "Wide range of investment options",
+    "No AMC fees or hidden charges",
+    "24/7 customer support",
+    "User-friendly interface"
+  ],
+  "competitive_position": "Groww positions itself as a leading and comprehensive investment platform in India, catering to both novice and experienced investors with a wide array of financial instruments and services.",
+  "recent_issues": [
+    "Slow performance and lag during trading",
+    "Payment and withdrawal issues",
+    "Unresponsive customer support",
+    "Problems with the trading chart and technical analysis tools",
+    "Reliability issues during peak trading hours"
+  ]
+}
