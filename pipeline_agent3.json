@@ -1,0 +1,131 @@
+{
+  "sources": [
+    {
+      "channel": "https://www.youtube.com/@GrowwApp",
+      "channel_url": "https://www.youtube.com/@GrowwApp",
+      "videos_analyzed": 1,
+      "date_range": {
+        "latest": null,
+        "oldest": null
+      },
+      "channel_summary": "GrowwApp is a financial services platform that provides investment advice and tools. The channel focuses on educating viewers about investing in stocks, mutual funds, and other financial instruments.",
+      "content_themes": [
+        "Investing Basics",
+        "Financial Planning",
+        "Market Analysis"
+      ],
+      "posting_pattern": "Irregular posting pattern, with videos published sporadically.",
+      "audience_type": "Individual investors and beginners looking to learn about personal finance and investing.",
+      "content_style": "Educational",
+      "top_performing_topics": [
+        "Investing Basics",
+        "Mutual Funds"
+      ],
+      "videos": [
+        {
+          "video_id": "",
+          "url": "https://www.youtube.com/@GrowwApp/about",
+          "title": "",
+          "upload_date": null,
+          "duration": "0m 0s",
+          "view_count": null,
+          "like_count": null,
+          "summary": "This is the about page for the GrowwApp YouTube channel, which does not contain a specific video.",
+          "main_topics": [],
+          "sentiment": "Neutral",
+          "content_type": "About Page"
+        }
+      ]
+    },
+    {
+      "subreddit": "r/IndiaInvestments",
+      "subreddit_url": "https://www.reddit.com/r/IndiaInvestments/",
+      "posts_analyzed": 3,
+      "date_range": {
+        "latest": "2026-04-09T18:30:30.000Z",
+        "oldest": "2026-04-06T18:30:28.000Z"
+      },
+      "subreddit_summary": "The r/IndiaInvestments community is currently focused on providing advice and discussing strategies to attract foreign institutional investors (FIIs) back to the Indian market. The mood is generally positive and collaborative.",
+      "hot_topics": [
+        "Attracting FIIs",
+        "Investment advice",
+        "Market trends"
+      ],
+      "dominant_sentiment": "Positive",
+      "common_post_types": [
+        "Advice threads",
+        "Discussion/Opinion"
+      ],
+      "notable_trends": [
+        "Increased focus on FII investment strategies",
+        "Regular bi-weekly advice threads"
+      ],
+      "posts": [
+        {
+          "post_id": "t3_1sgy0sd",
+          "post_url": "https://www.reddit.com/r/IndiaInvestments/comments/1sgy0sd/biweekly_advice_thread_april_09_2026_all_your/",
+          "title": "Bi-Weekly Advice Thread April 09, 2026: All Your Personal Queries",
+          "author": "AutoModerator",
+          "created_at": "2026-04-09T18:30:30.000Z",
+          "score": 3,
+          "upvote_ratio": 0.81,
+          "num_comments": 0,
+          "flair": "Advice",
+          "summary": "A bi-weekly thread for users to ask investing-related questions and receive advice from the community.",
+          "main_topics": [
+            "Investing advice",
+            "Community support"
+          ],
+          "overall_sentiment": "Positive",
+          "community_sentiment": "Positive",
+          "negative_points": [],
+          "post_type": "Advice",
+          "controversy_level": "Low"
+        },
+        {
+          "post_id": "t3_1se7864",
+          "post_url": "https://www.reddit.com/r/IndiaInvestments/comments/1se7864/biweekly_advice_thread_april_06_2026_all_your/",
+          "title": "Bi-Weekly Advice Thread April 06, 2026: All Your Personal Queries",
+          "author": "AutoModerator",
+          "created_at": "2026-04-06T18:30:28.000Z",
+          "score": 9,
+          "upvote_ratio": 0.91,
+          "num_comments": 8,
+          "flair": "Advice",
+          "summary": "Another bi-weekly thread for users to ask investing-related questions and receive advice from the community.",
+          "main_topics": [
+            "Investing advice",
+            "Community support"
+          ],
+          "overall_sentiment": "Positive",
+          "community_sentiment": "Positive",
+          "negative_points": [],
+          "post_type": "Advice",
+          "controversy_level": "Low"
+        },
+        {
+          "post_id": "t3_1sgpisj",
+          "post_url": "https://www.reddit.com/r/IndiaInvestments/comments/1sgpisj/how_can_we_attract_fiis_back_nithin_kamaths_take/",
+          "title": "How can we attract FIIs back Nithin kamath's take. Do you agree?",
+          "author": "Tris_Memba",
+          "created_at": "2026-04-09T13:23:45.000Z",
+          "score": 57,
+          "upvote_ratio": 0.89,
+          "num_comments": 30,
+          "flair": "Discussion/Opinion",
+          "summary": "Discussion on Nithin Kamath's take on how to attract foreign institutional investors (FIIs) back to India, with community opinions and insights.",
+          "main_topics": [
+            "Attracting FIIs",
+            "Nithin Kamath's opinion",
+            "Market strategies"
+          ],
+          "overall_sentiment": "Positive",
+          "community_sentiment": "Mixed",
+          "negative_points": [],
+          "post_type": "Discussion/Opinion",
+          "controversy_level": "Medium"
+        }
+      ]
+    }
+  ]
+}

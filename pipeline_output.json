@@ -1,0 +1,687 @@
+{
+  "agent1": {
+    "transcript_id": "48e6eeeb3a2704bc0bf949c457386e8b",
+    "metadata": {
+      "title": "Product Strategy Meeting - Q2 2026",
+      "topic": "",
+      "duration": "",
+      "participants": [],
+      "total_turns": 14
+    },
+    "analysis": {
+      "title": "Founders Meeting - Qtrly Review & Priorities",
+      "summary": "The team reviewed declining NPS and competitive challenges, revealing issues with user onboarding, withdrawals, and high user dormancy.\nThey decided to prioritize beginner onboarding and address critical technical debt and user reactivation.",
+      "major_decisions": [
+        "Prioritize beginner onboarding as the primary strategic focus.",
+        "Address withdrawal delays as a critical quick win.",
+        "Launch a campaign to reactivate dormant users."
+      ],
+      "problems_identified": [
+        "NPS dropped 8 points this quarter.",
+        "Charts are too complex for new users.",
+        "Users struggle with SIP setup.",
+        "Withdrawal delays are eroding user trust.",
+        "Withdrawal infrastructure causes an unnecessary 2-day delay due to batching.",
+        "Customer support tickets related to withdrawals are up 34% month over month.",
+        "Competitor Groww is capturing the beginner segment with faster onboarding (3 mins vs. our 15 mins).",
+        "Company lacks a clear competitive advantage, being 'somewhere in the middle' on features like charts and UX.",
+        "Fast API is underutilized and undiscovered by beginners.",
+        "80% of users are dormant (only 400k active out of 2.1M total users)."
+      ],
+      "solutions_pitched": [
+        "Simplified SIP wizard.",
+        "3-step account opening process.",
+        "Learning mode to hide advanced features for new users.",
+        "Fix withdrawal infrastructure to eliminate 2-day delay (Arjun).",
+        "Portfolio health check email to reactivate dormant users (Meera)."
+      ],
+      "tone": {
+        "positive": [
+          "Consensus on prioritizing beginner onboarding.",
+          "Identification of quick win opportunities (withdrawal fix, dormant user reactivation).",
+          "Acknowledgement of internal strength (fast API).",
+          "Proactive approach to strategic re-evaluation."
+        ],
+        "negative": [
+          "Significant NPS drop (8 points).",
+          "Withdrawal delays 'killing trust'.",
+          "Competitor 'eating our beginner segment'.",
+          "Sentiment that 'we're not best at anything'.",
+          "Concern over '80% dormancy'."
+        ]
+      },
+      "timeline_of_discussion": [
+        {
+          "timestamp": "00:00-03:00",
+          "section": "USER FEEDBACK REVIEW",
+          "key_point": "Discussion of NPS drop and specific user pain points: complex charts, SIP setup, and withdrawal delays."
+        },
+        {
+          "timestamp": "03:00-06:00",
+          "section": "COMPETITIVE ANALYSIS",
+          "key_point": "Analysis of competitor strengths, slow onboarding, lack of differentiation, and high user dormancy."
+        },
+        {
+          "timestamp": "06:00-09:00",
+          "section": "PRIORITIES",
+          "key_point": "Decision to focus on beginner onboarding, along with commitments for withdrawal fixes and dormant user reactivation."
+        }
+      ],
+      "improvements_for_next_call": [
+        "Define specific, measurable success metrics for beginner onboarding initiatives.",
+        "Allocate dedicated time to discuss resource implications for new priorities.",
+        "Establish clear targets and timelines for the dormant user reactivation campaign.",
+        "Include a segment for open discussion on potential risks or strategic pivots identified."
+      ],
+      "next_steps": [
+        "Arjun: Fix withdrawal infrastructure by end of month.",
+        "Priya: Design the beginner onboarding flow.",
+        "Meera: Run a dormant user reactivation campaign."
+      ],
+      "decision_making_insights": [
+        "Decisions are heavily influenced by user feedback, NPS, and competitive analysis.",
+        "A clear strategic direction was adopted to overcome being 'average' in the market.",
+        "Prioritization balances immediate problem-solving (withdrawals) with long-term strategic growth (beginner onboarding).",
+        "Acknowledgement of dormant users as a significant, addressable growth lever."
+      ],
+      "metadata": {
+        "title": "Product Strategy Meeting - Q2 2026",
+        "topic": "",
+        "duration": "",
+        "participants": [],
+        "total_turns": 14
+      },
+      "speaker_contribution": {
+        "Participants": 1,
+        "Raj": 4,
+        "Priya": 3,
+        "Arjun": 3,
+        "Meera": 3
+      },
+      "timeline": [
+        {
+          "timestamp": "00:00-03:00",
+          "section": "USER FEEDBACK REVIEW"
+        },
+        {
+          "timestamp": "03:00-06:00",
+          "section": "COMPETITIVE ANALYSIS"
+        },
+        {
+          "timestamp": "06:00-09:00",
+          "section": "PRIORITIES"
+        }
+      ]
+    }
+  },
+  "agent2": {},
+  "agent3": {
+    "sources": [
+      {
+        "channel": "Zerodha",
+        "channel_url": "https://www.youtube.com/@zerodhaonline",
+        "videos_analyzed": 10,
+        "date_range": {
+          "latest": "2026-04-09",
+          "oldest": "2026-02-10"
+        },
+        "channel_summary": null,
+        "content_themes": [],
+        "posting_pattern": null,
+        "audience_type": null,
+        "content_style": null,
+        "top_performing_topics": [],
+        "videos": [
+          {
+            "video_id": "mcwC7L0Ts7c",
+            "url": "https://www.youtube.com/watch?v=mcwC7L0Ts7c",
+            "title": "Redesigned marketwatch is now on Kite app: 25 watchlists, custom groups and pre-built lists",
+            "upload_date": "2026-03-13",
+            "duration": "4m 5s",
+            "view_count": 6800,
+            "like_count": 205,
+            "summary": null,
+            "main_topics": [],
+            "sentiment": null,
+            "content_type": null
+          },
+          {
+            "video_id": "F8Q7KdMOlMs",
+            "url": "https://www.youtube.com/watch?v=F8Q7KdMOlMs",
+            "title": "Social Stock Exchange (SSE): How India’s regulated platform for social causes works",
+            "upload_date": "2026-04-09",
+            "duration": "9m 48s",
+            "view_count": 1945,
+            "like_count": 98,
+            "summary": null,
+            "main_topics": [],
+            "sentiment": null,
+            "content_type": null
+          },
+          {
+            "video_id": "ec3Dost83Rg",
+            "url": "https://www.youtube.com/watch?v=ec3Dost83Rg",
+            "title": "Zerodha मध्ये फ्री डिमॅट अकाउंट कसे उघडायचे? | How to open free demat account in Marathi",
+            "upload_date": "2026-02-25",
+            "duration": "10m 23s",
+            "view_count": 1127,
+            "like_count": 29,
+            "summary": null,
+            "main_topics": [],
+            "sentiment": null,
+            "content_type": null
+          },
+          {
+            "video_id": "Gpomq9DSEmE",
+            "url": "https://www.youtube.com/watch?v=Gpomq9DSEmE",
+            "title": "Introducing microsavings on Coin: Invest small amounts daily",
+            "upload_date": "2026-02-10",
+            "duration": "3m 32s",
+            "view_count": 36313,
+            "like_count": 681,
+            "summary": null,
+            "main_topics": [],
+            "sentiment": null,
+            "content_type": null
+          },
+          {
+            "video_id": "8vKZTnrntgE",
+            "url": "https://www.youtube.com/watch?v=8vKZTnrntgE",
+            "title": "Introducing Kite terminal mode: Build your trading workspace",
+            "upload_date": "2026-03-16",
+            "duration": "12m 17s",
+            "view_count": 98330,
+            "like_count": 1500,
+            "summary": null,
+            "main_topics": [],
+            "sentiment": null,
+            "content_type": null
+          },
+          {
+            "video_id": "H6hTkNCGujM",
+            "url": "https://www.youtube.com/watch?v=H6hTkNCGujM",
+            "title": "Your broker doesn't hold your shares. Who does? Depository participant explained",
+            "upload_date": "2026-02-18",
+            "duration": "12m 0s",
+            "view_count": 7585,
+            "like_count": 306,
+            "summary": null,
+            "main_topics": [],
+            "sentiment": null,
+            "content_type": null
+          },
+          {
+            "video_id": "8ALskQpZmYU",
+            "url": "https://www.youtube.com/watch?v=8ALskQpZmYU",
+            "title": "How to open a HUF demat account with Zerodha",
+            "upload_date": "2026-03-11",
+            "duration": "6m 12s",
+            "view_count": 3931,
+            "like_count": 73,
+            "summary": null,
+            "main_topics": [],
+            "sentiment": null,
+            "content_type": null
+          },
+          {
+            "video_id": "wFIZFasZgoU",
+            "url": "https://www.youtube.com/watch?v=wFIZFasZgoU",
+            "title": "Zerodha ಅಲ್ಲಿ ಫ್ರೀ ಡಿಮ್ಯಾಟ್  ಅಕೌಂಟ್  ಓಪನ್  ಮಾಡೋದು ಹೇಗೆ? | How to open free demat account in Kannada",
+            "upload_date": "2026-02-16",
+            "duration": "12m 42s",
+            "view_count": 1536,
+            "like_count": 39,
+            "summary": null,
+            "main_topics": [],
+            "sentiment": null,
+            "content_type": null
+          },
+          {
+            "video_id": "iLAP64O2gEw",
+            "url": "https://www.youtube.com/watch?v=iLAP64O2gEw",
+            "title": "Introducing Fixed Deposits (FDs) on Coin by Zerodha: How to invest, track, and manage FDs",
+            "upload_date": "2026-04-07",
+            "duration": "3m 48s",
+            "view_count": 25414,
+            "like_count": 524,
+            "summary": null,
+            "main_topics": [],
+            "sentiment": null,
+            "content_type": null
+          },
+          {
+            "video_id": "LzqhO4vxGD4",
+            "url": "https://www.youtube.com/watch?v=LzqhO4vxGD4",
+            "title": "What is India VIX, and why should you track it?",
+            "upload_date": "2026-03-09",
+            "duration": "9m 33s",
+            "view_count": 52098,
+            "like_count": 1800,
+            "summary": null,
+            "main_topics": [],
+            "sentiment": null,
+            "content_type": null
+          }
+        ]
+      },
+      {
+        "subreddit": "r/IndiaInvestments",
+        "subreddit_url": "https://www.reddit.com/r/IndiaInvestments/",
+        "posts_analyzed": 2,
+        "date_range": {
+          "latest": "2026-04-09T18:30:30.000Z",
+          "oldest": "2026-04-09T13:23:45.000Z"
+        },
+        "subreddit_summary": "The r/IndiaInvestments community is currently focused on seeking advice and discussing strategies to attract foreign institutional investors (FIIs) back to the Indian market. The mood is generally positive and engaged.",
+        "hot_topics": [
+          "Attracting FIIs",
+          "Investment advice"
+        ],
+        "dominant_sentiment": "Positive",
+        "common_post_types": [
+          "Advice",
+          "Discussion/Opinion"
+        ],
+        "notable_trends": [
+          "Increased focus on FII investment strategies",
+          "Regular bi-weekly advice threads"
+        ],
+        "posts": [
+          {
+            "post_id": "t3_1sgy0sd",
+            "post_url": "https://www.reddit.com/r/IndiaInvestments/comments/1sgy0sd/biweekly_advice_thread_april_09_2026_all_your/",
+            "title": "Bi-Weekly Advice Thread April 09, 2026: All Your Personal Queries",
+            "author": "AutoModerator",
+            "created_at": "2026-04-09T18:30:30.000Z",
+            "score": 3,
+            "upvote_ratio": 0.81,
+            "num_comments": 0,
+            "flair": "Advice",
+            "summary": "A bi-weekly thread for users to ask personal investing queries and receive advice from the community.",
+            "main_topics": [
+              "Investing advice",
+              "Community support"
+            ],
+            "overall_sentiment": "Positive",
+            "community_sentiment": "Positive",
+            "negative_points": [],
+            "post_type": "Advice",
+            "controversy_level": "Low"
+          },
+          {
+            "post_id": "t3_1sgpisj",
+            "post_url": "https://www.reddit.com/r/IndiaInvestments/comments/1sgpisj/how_can_we_attract_fiis_back_nithin_kamaths_take/",
+            "title": "How can we attract FIIs back Nithin kamath's take. Do you agree?",
+            "author": "Tris_Memba",
+            "created_at": "2026-04-09T13:23:45.000Z",
+            "score": 61,
+            "upvote_ratio": 0.9,
+            "num_comments": 28,
+            "flair": "Discussion/Opinion",
+            "summary": "Discussion on Nithin Kamath's views on how to attract foreign institutional investors (FIIs) back to India, with community members sharing their opinions.",
+            "main_topics": [
+              "FII attraction",
+              "Nithin Kamath",
+              "Investment strategies"
+            ],
+            "overall_sentiment": "Positive",
+            "community_sentiment": "Mixed",
+            "negative_points": [],
+            "post_type": "Discussion/Opinion",
+            "controversy_level": "Medium"
+          }
+        ]
+      }
+    ]
+  },
+  "agent4": {
+    "total_problems": 6,
+    "problems": [
+      {
+        "problem": "New users find the charts too complex and difficult to understand.",
+        "evidence": [
+          "Charts are too complex for new users.",
+          "Company lacks a clear competitive advantage, being 'somewhere in the middle' on features like charts and UX."
+        ],
+        "frequency": "Medium",
+        "user_type": "Beginner",
+        "source_mix": [
+          "Internal"
+        ],
+        "positive_points": [],
+        "negative_points": [
+          "Charts are too complex for new users.",
+          "Company lacks a clear competitive advantage, being 'somewhere in the middle' on features like charts and UX."
+        ]
+      },
+      {
+        "problem": "Users experience significant delays when making withdrawals, leading to a loss of trust.",
+        "evidence": [
+          "Withdrawal delays are eroding user trust.",
+          "Withdrawal infrastructure causes an unnecessary 2-day delay due to batching.",
+          "Customer support tickets related to withdrawals are up 34% month over month."
+        ],
+        "frequency": "High",
+        "user_type": "Intermediate",
+        "source_mix": [
+          "Internal"
+        ],
+        "positive_points": [],
+        "negative_points": [
+          "Withdrawal delays are eroding user trust.",
+          "Withdrawal infrastructure causes an unnecessary 2-day delay due to batching.",
+          "Customer support tickets related to withdrawals are up 34% month over month."
+        ]
+      },
+      {
+        "problem": "The SIP setup process is confusing and difficult for new users.",
+        "evidence": [
+          "Users struggle with SIP setup."
+        ],
+        "frequency": "Low",
+        "user_type": "Beginner",
+        "source_mix": [
+          "Internal"
+        ],
+        "positive_points": [],
+        "negative_points": [
+          "Users struggle with SIP setup."
+        ]
+      },
+      {
+        "problem": "A large percentage of users become dormant after initial sign-up, indicating low engagement.",
+        "evidence": [
+          "80% of users are dormant (only 400k active out of 2.1M total users)."
+        ],
+        "frequency": "High",
+        "user_type": "Beginner",
+        "source_mix": [
+          "Internal"
+        ],
+        "positive_points": [],
+        "negative_points": [
+          "80% of users are dormant (only 400k active out of 2.1M total users)."
+        ]
+      },
+      {
+        "problem": "Competitors are capturing the beginner segment with faster and more streamlined onboarding processes.",
+        "evidence": [
+          "Competitor Groww is capturing the beginner segment with faster onboarding (3 mins vs. our 15 mins)."
+        ],
+        "frequency": "Medium",
+        "user_type": "Beginner",
+        "source_mix": [
+          "Internal"
+        ],
+        "positive_points": [],
+        "negative_points": [
+          "Competitor Groww is capturing the beginner segment with faster onboarding (3 mins vs. our 15 mins)."
+        ]
+      },
+      {
+        "problem": "The fast API, which could enhance user experience, is underutilized and unknown to beginners.",
+        "evidence": [
+          "Fast API is underutilized and undiscovered by beginners."
+        ],
+        "frequency": "Low",
+        "user_type": "Beginner",
+        "source_mix": [
+          "Internal"
+        ],
+        "positive_points": [
+          "Acknowledgement of internal strength (fast API)."
+        ],
+        "negative_points": [
+          "Fast API is underutilized and undiscovered by beginners."
+        ]
+      }
+    ]
+  },
+  "agent5": {
+    "total_insights": 3,
+    "insights": [
+      {
+        "insight": "The product lacks a clear value proposition and differentiation, especially for beginners, leading to poor user retention and engagement.",
+        "supporting_problems": [
+          "New users find the charts too complex and difficult to understand.",
+          "Competitors are capturing the beginner segment with faster and more streamlined onboarding processes.",
+          "A large percentage of users become dormant after initial sign-up, indicating low engagement."
+        ],
+        "evidence": [
+          "Charts are too complex for new users.",
+          "Competitor Groww is capturing the beginner segment with faster onboarding (3 mins vs. our 15 mins).",
+          "80% of users are dormant (only 400k active out of 2.1M total users)."
+        ],
+        "implication": "We need to simplify the user experience and provide clear value propositions to attract and retain beginners.",
+        "priority": "Critical",
+        "hypothesis": "If we simplify the onboarding process and make key features more intuitive, we will see an increase in user retention and engagement.",
+        "recommended_action": "Redesign the onboarding flow to be more beginner-friendly and highlight key features."
+      },
+      {
+        "insight": "Technical issues, particularly with withdrawals, are eroding user trust and causing significant user frustration.",
+        "supporting_problems": [
+          "Users experience significant delays when making withdrawals, leading to a loss of trust.",
+          "Withdrawal infrastructure causes an unnecessary 2-day delay due to batching.",
+          "Customer support tickets related to withdrawals are up 34% month over month."
+        ],
+        "evidence": [
+          "Withdrawal delays are eroding user trust.",
+          "Withdrawal infrastructure causes an unnecessary 2-day delay due to batching.",
+          "Customer support tickets related to withdrawals are up 34% month over month."
+        ],
+        "implication": "Improving the withdrawal process is critical to restoring user trust and reducing support burden.",
+        "priority": "High",
+        "hypothesis": "If we reduce the withdrawal delay to 1 day or less, we will see a decrease in customer support tickets and an improvement in user trust.",
+        "recommended_action": "Optimize the withdrawal infrastructure to eliminate the 2-day delay."
+      },
+      {
+        "insight": "The product's core features are not well-discovered or utilized by beginners, leading to underutilization of potential value.",
+        "supporting_problems": [
+          "The fast API, which could enhance user experience, is underutilized and unknown to beginners.",
+          "Users struggle with SIP setup."
+        ],
+        "evidence": [
+          "Fast API is underutilized and undiscovered by beginners.",
+          "Users struggle with SIP setup."
+        ],
+        "implication": "We need to improve feature discoverability and usability to ensure beginners can fully leverage the product's capabilities.",
+        "priority": "Medium",
+        "hypothesis": "If we improve the discoverability and usability of key features like the fast API and SIP setup, we will see increased user satisfaction and engagement.",
+        "recommended_action": "Conduct a usability study to identify pain points and implement improvements in feature discovery and setup."
+      }
+    ]
+  },
+  "agent6": {
+    "total_features": 5,
+    "features": [
+      {
+        "feature_name": "Simplified Onboarding Flow",
+        "problem": "New users find the onboarding process too complex and time-consuming.",
+        "why_it_matters": "A complex onboarding process leads to high drop-off rates and poor user retention, especially among beginners.",
+        "solution": "Redesign the onboarding flow to be more intuitive, with step-by-step guidance and clear explanations of key features.",
+        "user_flow": [
+          "User signs up and is directed to a simplified onboarding screen.",
+          "User completes a series of guided steps, each explaining a core feature.",
+          "User can skip any step and return later if needed.",
+          "User receives a welcome email with additional resources and tips.",
+          "User is prompted to set up key features like SIP and fast API."
+        ],
+        "expected_impact": "Reduces onboarding time from 15 minutes to 3 minutes, increasing user retention by 20%.",
+        "priority": "Critical",
+        "effort": "High",
+        "target_user": "Beginner"
+      },
+      {
+        "feature_name": "Real-Time Withdrawal Status",
+        "problem": "Users experience significant delays when making withdrawals, leading to a loss of trust.",
+        "why_it_matters": "Withdrawal delays cause frustration and erode user trust, leading to higher churn and increased support tickets.",
+        "solution": "Optimize the withdrawal infrastructure to reduce the delay to 1 day or less and provide real-time status updates.",
+        "user_flow": [
+          "User initiates a withdrawal request from their account.",
+          "User receives a confirmation message with an estimated processing time.",
+          "User can check the real-time status of their withdrawal in the dashboard.",
+          "User receives a notification when the withdrawal is complete.",
+          "User can view past withdrawal history and statuses."
+        ],
+        "expected_impact": "Reduces withdrawal processing time from 2 days to 1 day, decreasing customer support tickets by 34%.",
+        "priority": "High",
+        "effort": "High",
+        "target_user": "Intermediate"
+      },
+      {
+        "feature_name": "Guided SIP Setup",
+        "problem": "The SIP setup process is confusing and difficult for new users.",
+        "why_it_matters": "A confusing SIP setup process leads to underutilization of this valuable feature, reducing user engagement and satisfaction.",
+        "solution": "Create a guided SIP setup wizard that walks users through the process step-by-step with clear instructions and examples.",
+        "user_flow": [
+          "User clicks on the 'Set Up SIP' button in the dashboard.",
+          "User is guided through a series of questions to determine their investment goals and preferences.",
+          "User selects the investment amount and frequency.",
+          "User reviews and confirms the SIP setup details.",
+          "User receives a confirmation message and can track their SIP in the dashboard."
+        ],
+        "expected_impact": "Increases the number of users setting up SIP by 50%, improving user engagement and satisfaction.",
+        "priority": "Medium",
+        "effort": "Medium",
+        "target_user": "Beginner"
+      },
+      {
+        "feature_name": "Fast API Discovery Hub",
+        "problem": "The fast API, which could enhance user experience, is underutilized and unknown to beginners.",
+        "why_it_matters": "Underutilization of the fast API means users are not leveraging its full potential, leading to missed opportunities for enhanced user experience.",
+        "solution": "Create a dedicated discovery hub for the fast API, providing tutorials, use cases, and integration guides.",
+        "user_flow": [
+          "User navigates to the 'API Hub' section in the dashboard.",
+          "User views a list of available APIs and their benefits.",
+          "User selects the fast API and accesses detailed documentation and tutorials.",
+          "User follows a step-by-step guide to integrate the fast API into their workflow.",
+          "User receives a confirmation message upon successful integration."
+        ],
+        "expected_impact": "Increases the number of users integrating the fast API by 30%, enhancing user experience and satisfaction.",
+        "priority": "Medium",
+        "effort": "Medium",
+        "target_user": "Beginner"
+      },
+      {
+        "feature_name": "Dormant User Reactivation Campaign",
+        "problem": "A large percentage of users become dormant after initial sign-up, indicating low engagement.",
+        "why_it_matters": "Dormant users represent a significant opportunity for reactivation and growth, but they currently contribute little to user engagement and revenue.",
+        "solution": "Launch a targeted reactivation campaign with personalized emails, incentives, and re-engagement offers.",
+        "user_flow": [
+          "Dormant users receive a personalized email with a re-engagement offer.",
+          "User clicks on the email link to access a special re-engagement page.",
+          "User views a list of incentives, such as free trials or discounts.",
+          "User selects an incentive and follows the steps to redeem it.",
+          "User receives a follow-up email to check in and provide feedback."
+        ],
+        "expected_impact": "Reactivates 20% of dormant users, increasing active user count by 160,000.",
+        "priority": "High",
+        "effort": "Medium",
+        "target_user": "Beginner"
+      }
+    ]
+  },
+  "pipeline_summary": {
+    "question": "Summarize the key findings from this pipeline run in 3 bullet points.",
+    "answer": "The key findings are: 1) New users find the onboarding process too complex, leading to poor retention. 2) Withdrawal delays are a major source of user frustration and eroding trust. 3) The product lacks a clear value proposition and differentiation, especially for beginners.",
+    "evidence": [
+      "New users find the charts too complex and difficult to understand, and the company lacks a clear competitive advantage (Internal).",
+      "Users experience significant delays when making withdrawals, leading to a loss of trust, and the withdrawal infrastructure causes an unnecessary 2-day delay (Internal).",
+      "The product lacks a clear value proposition and differentiation, especially for beginners, leading to poor user retention and engagement (Insight)."
+    ],
+    "confidence": "High",
+    "follow_up_questions": [
+      "What specific changes can we make to the onboarding flow to reduce the time from 15 minutes to 3 minutes?",
+      "How can we optimize the withdrawal infrastructure to reduce the delay to 1 day or less?",
+      "What steps can we take to clearly communicate our unique value proposition to beginners?"
+    ]
+  },
+  "copilot_answers": [
+    {
+      "question": "What are the top 3 user problems?",
+      "answer": "The top 3 user problems are: 1) Significant delays in withdrawals, 2) Complex and difficult-to-understand charts for new users, and 3) A large percentage of users becoming dormant after initial sign-up.",
+      "evidence": [
+        "Users experience significant delays when making withdrawals, leading to a loss of trust.",
+        "New users find the charts too complex and difficult to understand.",
+        "A large percentage of users become dormant after initial sign-up, indicating low engagement."
+      ],
+      "confidence": "High",
+      "follow_up_questions": [
+        "What specific changes can we make to the withdrawal process to reduce delays?",
+        "How can we simplify the charts to make them more beginner-friendly?",
+        "What strategies can we use to re-engage dormant users and increase their activity?"
+      ]
+    },
+    {
+      "question": "What should we build next?",
+      "answer": "Prioritize the Simplified Onboarding Flow to reduce onboarding time and increase user retention, followed by optimizing the withdrawal infrastructure to reduce delays and restore user trust.",
+      "evidence": [
+        "New users find the onboarding process too complex and time-consuming, reducing user retention.",
+        "Users experience significant delays when making withdrawals, leading to a loss of trust.",
+        "Competitor Groww is capturing the beginner segment with faster onboarding (3 mins vs. our 15 mins).",
+        "Withdrawal infrastructure causes an unnecessary 2-day delay due to batching."
+      ],
+      "confidence": "High",
+      "follow_up_questions": [
+        "What specific changes should we make to the onboarding flow to reduce it from 15 minutes to 3 minutes?",
+        "How can we optimize the withdrawal infrastructure to reduce the delay to 1 day or less?",
+        "What metrics will we use to measure the success of these initiatives?"
+      ]
+    },
+    {
+      "question": "What are competitors doing differently?",
+      "answer": "Competitors like Groww are capturing the beginner segment with faster and more streamlined onboarding processes, such as completing onboarding in 3 minutes compared to our 15 minutes.",
+      "evidence": [
+        "Competitor Groww is capturing the beginner segment with faster onboarding (3 mins vs. our 15 mins).",
+        "New users find the onboarding process too complex and time-consuming."
+      ],
+      "confidence": "High",
+      "follow_up_questions": [
+        "How can we simplify our onboarding process to match or exceed competitor speeds?",
+        "What other features do competitors offer that are particularly appealing to beginners?",
+        "Are there any unique value propositions that competitors are using to attract and retain users?"
+      ]
+    },
+    {
+      "question": "What do users like most about the product?",
+      "answer": "The provided data does not contain specific information about what users like most about the product.",
+      "evidence": [
+        "The internal and user problems primarily focus on issues and areas for improvement, such as complex charts, withdrawal delays, and low user engagement."
+      ],
+      "confidence": "Low",
+      "follow_up_questions": [
+        "What are the positive aspects of the product that users frequently mention?",
+        "Are there any user testimonials or feedback that highlight what they enjoy about the product?",
+        "How can we gather more data on the positive user experiences to balance our understanding?"
+      ]
+    },
+    {
+      "question": "What are the onboarding issues?",
+      "answer": "The main onboarding issues are that the charts are too complex for new users, the SIP setup process is confusing, and the overall onboarding process is too long and complex.",
+      "evidence": [
+        "Charts are too complex for new users.",
+        "Users struggle with SIP setup.",
+        "Competitor Groww is capturing the beginner segment with faster onboarding (3 mins vs. our 15 mins)."
+      ],
+      "confidence": "High",
+      "follow_up_questions": [
+        "How can we simplify the charts to make them more beginner-friendly?",
+        "What specific steps can we take to streamline the SIP setup process?",
+        "What are the key elements that make competitor onboarding processes faster and more effective?"
+      ]
+    },
+    {
+      "question": "What are the reliability or downtime concerns?",
+      "answer": "There are no specific reliability or downtime concerns mentioned in the provided data. However, the withdrawal infrastructure causing a 2-day delay might indirectly indicate potential performance issues.",
+      "evidence": [
+        "Internal problem: Withdrawal infrastructure causes an unnecessary 2-day delay due to batching."
+      ],
+      "confidence": "Low",
+      "follow_up_questions": [
+        "Are there any known issues with server uptime or system stability?",
+        "How often do users report system crashes or unavailability?",
+        "What is the current SLA for system availability and how does it compare to competitors?"
+      ]
+    }
+  ]
+}

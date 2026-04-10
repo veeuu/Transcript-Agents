@@ -1,0 +1,30 @@
+{
+  "results": [],
+  "errors": [
+    {
+      "company": "Zerodha",
+      "error": "'charmap' codec can't encode character '\\u2192' in position 35: character maps to <undefined>"
+    },
+    {
+      "company": "Groww",
+      "error": "'charmap' codec can't encode character '\\u2192' in position 33: character maps to <undefined>"
+    },
+    {
+      "company": "Upstox",
+      "error": "'charmap' codec can't encode character '\\u2192' in position 34: character maps to <undefined>"
+    },
+    {
+      "company": "Angel One",
+      "error": "'charmap' codec can't encode character '\\u2192' in position 36: character maps to <undefined>"
+    },
+    {
+      "company": "Paytm Money",
+      "error": "'charmap' codec can't encode character '\\u2192' in position 38: character maps to <undefined>"
+    },
+    {
+      "company": "Dhan",
+      "error": "'charmap' codec can't encode character '\\u2192' in position 32: character maps to <undefined>"
+    }
+  ],
+  "total": 0
+}
